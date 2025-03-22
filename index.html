@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get cash for bottles and cans! We come to you! No need to leave your home, just call for pickup and we'll handle the rest. Serving NYC and surrounding areas.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Cash For Bottles and Cans - We pay 5¢ per container and come to you! No need to leave your home, just call 347-749-8146 for pickup and we'll handle the rest. Serving all NYC boroughs.">
     <meta name="keywords" content="cash for bottles, cash for cans, bottle pickup, can recycling, bottle redemption, home pickup service, NYC bottle pickup, Brooklyn bottle pickup, Queens bottle pickup, recycling service">
     <title>Cash For Bottles - We Come To You! | NYC Bottle & Can Pickup Service</title>
     
@@ -16,21 +16,28 @@
         }
         
         body {
-            background-color: #f8f9fa;
+            background-color: #d8b678; /* Matching the tan/beige color of the truck background */
             color: #333;
             text-align: center;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 1rem;
         }
         
-        .poster-image {
+        .page-title {
+            font-size: 2.8rem;
+            margin: 2rem 0 1rem;
+            color: #333;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .truck-image {
             width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 800px; /* Larger size for emphasis */
+            margin: 2rem auto 3rem auto; /* Added more bottom margin */
             display: block;
         }
         
@@ -38,91 +45,117 @@
             display: inline-block;
             background-color: #FF5722;
             color: white;
-            font-size: 1.5rem;
-            padding: 1rem 2rem;
+            font-size: 2rem;
+            padding: 1.2rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            margin: 2rem 0;
-            transition: background-color 0.3s, transform 0.3s;
+            margin: 2rem auto 4rem auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            animation: pulse 2s infinite;
+            text-transform: uppercase;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
         .call-btn:hover {
             background-color: #E64A19;
-            transform: scale(1.05);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        
+        .call-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .faq-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .faq {
+            text-align: left;
+            margin: 0 auto;
+        }
+        
+        .faq dt {
+            font-weight: bold;
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            color: #2E7D32;
+        }
+        
+        .faq dd {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
         }
         
         .footer {
-            margin-top: 2rem;
-            padding: 1rem;
+            margin-top: 3rem;
+            padding: 2rem;
             background-color: #333;
             color: white;
+            border-top: 5px solid #FF5722;
         }
         
         .footer p {
-            margin: 0.5rem 0;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin: 1rem 0;
-        }
-
-        .truck-image {
-            width: 100%;
-            max-width: 400px;
-            margin: 2rem auto;
-            display: block;
-        }
-
-        .faq {
-            text-align: left;
-            max-width: 600px;
-            margin: 2rem auto;
-        }
-
-        .faq dt {
-            font-weight: bold;
-            margin-top: 1rem;
-        }
-
-        .faq dd {
-            margin-bottom: 1rem;
+            margin: 0.7rem 0;
+            font-size: 1.1rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Main poster image -->
-        <img src="nyc-bottle-can-pickup.jpg" alt="Cash For Bottles and Cans - Call now for pickup service in NYC" class="poster-image">
-        
-        <!-- Call button -->
-        <a href="tel:3477498146" class="call-btn">CALL NOW: 347-749-8146</a>
-        
-        <!-- Truck image -->
+        <!-- Truck image as the first element -->
         <img src="an-illustration-of-a-2024-isuzu-box-truc_LYNF_9vwQ7asq0Zg1ETJpg_bfdezE5PSCSmCOfAQFv2uQ.png" alt="Our pickup truck ready to collect your bottles and cans" class="truck-image">
         
-        <!-- Simple FAQ -->
-        <h2>Frequently Asked Questions</h2>
-        <dl class="faq">
-            <dt>How much do you pay per bottle/can?</dt>
-            <dd>We pay the full redemption value of 5¢ per eligible container as set by New York state law.</dd>
-            
-            <dt>What areas do you serve?</dt>
-            <dd>We serve all boroughs of NYC including Manhattan, Brooklyn, Queens, Bronx, and Staten Island.</dd>
-            
-            <dt>Is there a minimum for pickup?</dt>
-            <dd>Yes, we require a minimum of 100 containers for our pickup service.</dd>
-            
-            <dt>How do I prepare my bottles and cans?</dt>
-            <dd>Simply rinse containers and keep them in bags or boxes. We'll handle the sorting!</dd>
-        </dl>
+        <!-- Call button with enhanced styling -->
+        <a href="tel:3477498146" class="call-btn">Call Now: 347-749-8146</a>
+        
+        <h1 style="font-size: 2.8rem; margin: 2rem 0; color: #333;">Cash For Bottles and Cans</h1>
+        <p style="font-size: 1.5rem; margin-bottom: 3rem; font-weight: bold;">We pay for your recyclables and come to you!</p>
+        
+        <!-- FAQ in a nice container -->
+        <div class="faq-container">
+            <h2>Frequently Asked Questions</h2>
+            <dl class="faq">
+                <dt>How much do you pay per bottle/can?</dt>
+                <dd>We pay the full redemption value of 5¢ per eligible container as set by New York state law.</dd>
+                
+                <dt>What areas do you serve?</dt>
+                <dd>We serve all boroughs of NYC including Manhattan, Brooklyn, Queens, Bronx, and Staten Island.</dd>
+                
+                <dt>Is there a minimum for pickup?</dt>
+                <dd>Yes, we require a minimum of 100 containers for our pickup service.</dd>
+                
+                <dt>How do I prepare my bottles and cans?</dt>
+                <dd>Simply rinse containers and keep them in bags or boxes. We'll handle the sorting!</dd>
+            </dl>
+        </div>
     </div>
     
     <div class="footer">
         <p>WWW.CASHFORBOTTLES.COM</p>
         <p>Cash For Bottles - NYC Bottle and Can Pickup Service</p>
-        <p>Call: <a href="tel:3477498146" style="color: white;">347-749-8146</a></p>
+        <p>Call: <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a></p>
         <p>&copy; 2025 Cash For Bottles. All rights reserved.</p>
     </div>
 
