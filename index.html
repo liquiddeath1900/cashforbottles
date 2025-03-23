@@ -3,290 +3,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Cash For Bottles and Cans - We pay 5¢ per container and come to you! No need to leave your home, just call 347-749-8146 for pickup and we'll handle the rest. Serving all NYC boroughs.">
-    <meta name="keywords" content="cash for bottles, cash for cans, bottle pickup, can recycling, bottle redemption, home pickup service, NYC bottle pickup, Brooklyn bottle pickup, Queens bottle pickup, recycling service">
-    <meta property="og:title" content="Cash For Bottles - We Come To You!">
-    <meta property="og:description" content="Get cash for your bottles and cans without leaving home. We pickup in all NYC boroughs.">
+    <title>Cash For Bottles and Cans | NYC Bottle Pickup Service</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="NYC bottle and can pickup service. We pay cash for your recyclables and come to you! Serving all NYC boroughs. Call 347-749-8146 to schedule a pickup.">
+    <meta name="keywords" content="bottle pickup, can recycling, NYC recycling, cash for bottles, bottle redemption, bottle collection service, Manhattan, Brooklyn, Queens, Bronx">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Cash For Bottles and Cans | NYC Bottle Pickup Service">
+    <meta property="og:description" content="We pay cash for your recyclables and come to you! Serving all NYC boroughs.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.cashforbottles.com">
-    <link rel="canonical" href="https://www.cashforbottles.com">
-    <title>Cash For Bottles - We Come To You! | NYC Bottle & Can Pickup Service</title>
+    <meta property="og:url" content="https://cashforbottles.com">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Cash For Bottles and Cans",
+      "description": "NYC bottle and can pickup service. We pay cash for your recyclables and come to you!",
+      "telephone": "+1-347-749-8146",
+      "url": "https://cashforbottles.com",
+      "areaServed": {
+        "@type": "City",
+        "name": "New York City",
+        "sameAs": "https://en.wikipedia.org/wiki/New_York_City"
+      },
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.7128,
+          "longitude": -74.0060
+        },
+        "geoRadius": "20"
+      }
+    }
+    </script>
     
     <style>
-        /* Base styles */
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
         
         body {
-            background-color: #d2b275; /* Exact match for truck background */
+            font-family: Arial, sans-serif;
+            background-color: #d2b275;
             color: white;
-            text-align: center;
             line-height: 1.6;
         }
         
         .container {
-            width: 100%;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem;
+            padding: 20px;
+            text-align: center;
         }
         
-        /* Typography */
-        .page-title {
-            font-size: 2.8rem;
-            margin: 2rem 0 1rem;
+        /* Language Selector */
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-button {
+            background-color: rgba(255, 255, 255, 0.2);
             color: white;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            border: 1px solid white;
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
         }
         
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 3rem;
+        .language-button:hover {
+            background-color: white;
+            color: #d2b275;
+        }
+        
+        .language-button.active {
+            background-color: white;
+            color: #d2b275;
             font-weight: bold;
-            color: white;
         }
         
-        /* Images */
+        /* Truck Image */
         .truck-image {
-            width: 100%;
-            max-width: 800px;
-            margin: 2rem auto 1rem auto;
-            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 30px;
             border: none;
             background: transparent;
         }
         
-        /* Call to action button */
-        .call-btn {
+        /* Call Button */
+        .call-button {
             display: inline-block;
+            width: 60%;
+            max-width: 600px;
             background-color: #FF5722;
             color: white;
             font-size: 2.2rem;
+            font-weight: bold;
+            text-align: center;
             padding: 1.5rem 3rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            margin: 0 auto 4rem auto;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            position: relative;
-            animation: pulse 2s infinite;
+            margin: 10px auto 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-transform: uppercase;
-            z-index: 2;
-            width: 60%;
-            max-width: 600px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            animation: pulse 2s infinite;
+        }
+        
+        .call-button:hover {
+            background-color: #E64A19;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
         }
         
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
         }
         
-        .call-btn:hover {
-            background-color: #E64A19;
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        /* Headings */
+        .title {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
-        .call-btn:active {
-            transform: scale(0.98);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         
-        /* FAQ section */
-        .faq-container {
-            background-color: rgba(255, 255, 255, 0.9);
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
             border-radius: 10px;
-            padding: 2rem;
-            margin: 2rem auto;
-            max-width: 800px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: 40px;
             color: #333;
-        }
-        
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-        
-        .faq {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             text-align: left;
-            margin: 0 auto;
         }
         
-        .faq dt {
-            font-weight: bold;
-            margin-top: 1.5rem;
-            font-size: 1.2rem;
+        .faq-section h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+        }
+        
+        .faq-question {
             color: #2E7D32;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
         
-        .faq dd {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.5;
+        .faq-answer {
+            font-size: 1.2rem;
+            line-height: 1.6;
         }
         
         /* Footer */
         .footer {
-            margin-top: 3rem;
-            padding: 2rem;
-            background-color: #333;
+            margin-top: 50px;
+            padding: 20px 0;
+            font-size: 1rem;
+        }
+        
+        .footer a {
             color: white;
-            border-top: 5px solid #FF5722;
+            text-decoration: none;
+            font-weight: bold;
         }
         
-        .footer p {
-            margin: 0.7rem 0;
-            font-size: 1.1rem;
+        /* Hide content based on language */
+        [lang]:not([lang=en]) {
+            display: none;
         }
         
-        /* Mobile responsiveness */
+        /* Media Queries */
         @media (max-width: 768px) {
-            body {
-                padding: 0;
-            }
-            
             .container {
-                padding: 0;
-                width: 100%;
+                padding: 15px;
             }
             
-            .page-title {
-                font-size: 2.2rem;
-                margin-top: 3rem;
+            .language-selector {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+                padding: 0 15px;
             }
             
             .tagline {
+                font-size: 1.5rem;
+                padding: 0 15px;
+            }
+            
+            .call-button {
+                font-size: 1.8rem;
+                padding: 1.2rem 2rem;
+                width: 80%;
+            }
+            
+            .faq-section h2 {
+                font-size: 2rem;
+            }
+            
+            .faq-question {
                 font-size: 1.3rem;
             }
             
-            .call-btn {
-                font-size: 1.6rem;
-                padding: 1.2rem 1rem;
-                width: 90%;
-                border-radius: 50px;
-                display: block;
-                box-sizing: border-box;
-                text-align: center;
-                margin: 1.5rem auto;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .faq dt {
+            .faq-answer {
                 font-size: 1.1rem;
-            }
-            
-            .faq dd {
-                font-size: 1rem;
             }
         }
         
         @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
             .truck-image {
-                width: 100%;
-                margin: 1rem auto 2rem auto;
+                margin-bottom: 20px;
             }
             
-            .page-title {
-                font-size: 1.8rem;
-                margin-top: 2rem;
+            .title {
+                font-size: 2.2rem;
+                padding: 0 10px;
             }
             
-            .call-btn {
-                font-size: 1.4rem;
-                padding: 1.2rem 1rem;
+            .tagline {
+                font-size: 1.3rem;
+                padding: 0 10px;
+                margin-bottom: 30px;
+            }
+            
+            .call-button {
                 width: 85%;
-                border-radius: 50px;
+                font-size: 1.5rem;
+                padding: 1rem 1.5rem;
                 white-space: nowrap;
-                margin: 1.5rem auto 3rem auto;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                margin-bottom: 30px;
             }
             
-            .faq-container {
-                padding: 1.5rem;
+            .faq-section {
+                padding: 20px;
             }
             
-            .footer p {
-                font-size: 0.9rem;
+            .faq-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .faq-question {
+                font-size: 1.2rem;
+            }
+            
+            .faq-answer {
+                font-size: 1rem;
+            }
+            
+            .language-button {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+                margin-bottom: 5px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Truck image as the first element -->
-        <img src="an-illustration-of-a-2024-isuzu-box-truc_LYNF_9vwQ7asq0Zg1ETJpg_bfdezE5PSCSmCOfAQFv2uQ.png" alt="Our pickup truck ready to collect your bottles and cans" class="truck-image">
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <button class="language-button active" onclick="changeLanguage('en')">English</button>
+            <button class="language-button" onclick="changeLanguage('es')">Español</button>
+            <button class="language-button" onclick="changeLanguage('zh')">中文</button>
+            <button class="language-button" onclick="changeLanguage('ru')">Русский</button>
+            <button class="language-button" onclick="changeLanguage('ht')">Kreyòl</button>
+        </div>
+
+        <img src="an-illustration-of-a-2024-isuzu-box-truc_LYNF_9vwQ7asq0Zg1ETJpg_bfdezE5PSCSmCOfAQFv2uQ.png" alt="Cash For Bottles Pickup Truck" class="truck-image">
         
-        <!-- Call button with enhanced styling -->
-        <a href="tel:3477498146" class="call-btn">CALL NOW: 347-749-8146</a>
-        
-        <!-- Title and tagline -->
-        <h1 class="page-title">Cash For Bottles and Cans</h1>
-        <p class="tagline">We pay for your recyclables and come to you!</p>
-        
-        <!-- FAQ in a nice container -->
-        <div class="faq-container">
-            <h2>Frequently Asked Questions</h2>
-            <dl class="faq">
-                <dt>What areas do you serve?</dt>
-                <dd>We serve all boroughs of NYC including Manhattan, Brooklyn, Queens, and Bronx.</dd>
+        <!-- English Content -->
+        <div lang="en">
+            <a href="tel:3477498146" class="call-button">CALL NOW: 347-749-8146</a>
+            <h1 class="title">Cash For Bottles and Cans</h1>
+            <p class="tagline">We pay for your recyclables and come to you!</p>
+            
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
                 
-                <dt>Is there a minimum for pickup?</dt>
-                <dd>Yes, we require a minimum of 1000 containers for our pickup service.</dd>
+                <div class="faq-item">
+                    <h3 class="faq-question">What areas do you serve?</h3>
+                    <p class="faq-answer">We serve all boroughs of NYC including Manhattan, Brooklyn, Queens, and Bronx.</p>
+                </div>
                 
-                <dt>How do I prepare my bottles and cans?</dt>
-                <dd>Sort plastic bottles with plastic and cans with cans. For glass, no more than 50 pieces per bag. Use transparent bags and clearly write the quantity on each bag. For best results, write the amount on a small piece of cardboard and place it inside where it's visible to the driver.</dd>
-            </dl>
+                <div class="faq-item">
+                    <h3 class="faq-question">Is there a minimum for pickup?</h3>
+                    <p class="faq-answer">Yes, we require a minimum of 1000 containers for our pickup service.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">How do I prepare my bottles and cans?</h3>
+                    <p class="faq-answer">Sort plastic bottles with plastic and cans with cans. For glass, no more than 50 pieces per bag. Please use transparent bags and write the number of pieces on the bag clearly. For best results, write the amount on a small piece of cardboard and place it inside the bag where it's easily visible for the pickup driver to spot.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Spanish Content -->
+        <div lang="es">
+            <a href="tel:3477498146" class="call-button">LLAME AHORA: 347-749-8146</a>
+            <h1 class="title">Dinero por Botellas y Latas</h1>
+            <p class="tagline">¡Pagamos por sus reciclables y vamos a usted!</p>
+            
+            <div class="faq-section">
+                <h2>Preguntas Frecuentes</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Qué áreas atienden?</h3>
+                    <p class="faq-answer">Atendemos todos los distritos de NYC incluyendo Manhattan, Brooklyn, Queens y Bronx.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Hay un mínimo para la recogida?</h3>
+                    <p class="faq-answer">Sí, requerimos un mínimo de 1000 envases para nuestro servicio de recogida.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Cómo preparo mis botellas y latas?</h3>
+                    <p class="faq-answer">Clasifique las botellas de plástico con plástico y las latas con latas. Para el vidrio, no más de 50 piezas por bolsa. Por favor, use bolsas transparentes y escriba claramente el número de piezas en la bolsa. Para mejores resultados, escriba la cantidad en un pequeño trozo de cartón y colóquelo dentro de la bolsa donde sea fácilmente visible para el conductor de recogida.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chinese Content -->
+        <div lang="zh">
+            <a href="tel:3477498146" class="call-button">立即致电: 347-749-8146</a>
+            <h1 class="title">回收瓶罐换现金</h1>
+            <p class="tagline">我们为您的可回收物付款并上门服务！</p>
+            
+            <div class="faq-section">
+                <h2>常见问题</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">你们服务哪些地区？</h3>
+                    <p class="faq-answer">我们服务纽约市所有区，包括曼哈顿、布鲁克林、皇后区和布朗克斯。</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">收取有最低数量要求吗？</h3>
+                    <p class="faq-answer">是的，我们的上门收取服务要求至少有1000个容器。</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">如何准备我的瓶子和罐子？</h3>
+                    <p class="faq-answer">请将塑料瓶与塑料瓶分类，将罐子与罐子分类。对于玻璃，每袋不超过50件。请使用透明袋，并在袋子上清楚地写明件数。为了获得最佳效果，请在小纸板上写明数量，并将其放在袋子内司机容易看到的地方。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Russian Content -->
+        <div lang="ru">
+            <a href="tel:3477498146" class="call-button">ПОЗВОНИТЕ СЕЙЧАС: 347-749-8146</a>
+            <h1 class="title">Деньги за Бутылки и Банки</h1>
+            <p class="tagline">Мы платим за ваши отходы и приезжаем к вам!</p>
+            
+            <div class="faq-section">
+                <h2>Часто Задаваемые Вопросы</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Какие районы вы обслуживаете?</h3>
+                    <p class="faq-answer">Мы обслуживаем все районы Нью-Йорка, включая Манхэттен, Бруклин, Куинс и Бронкс.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Есть ли минимум для сбора?</h3>
+                    <p class="faq-answer">Да, для нашей услуги по сбору требуется минимум 1000 контейнеров.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Как подготовить мои бутылки и банки?</h3>
+                    <p class="faq-answer">Сортируйте пластиковые бутылки с пластиком и банки с банками. Для стекла не более 50 штук в пакете. Пожалуйста, используйте прозрачные пакеты и четко напишите количество штук на пакете. Для лучших результатов напишите количество на небольшом куске картона и поместите его внутрь пакета, где его легко увидит водитель.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Haitian Creole Content -->
+        <div lang="ht">
+            <a href="tel:3477498146" class="call-button">RELE KOUNYE A: 347-749-8146</a>
+            <h1 class="title">Lajan pou Boutèy ak Bwat</h1>
+            <p class="tagline">Nou peye pou bagay resiklab ou yo epi nou vini lakay ou!</p>
+            
+            <div class="faq-section">
+                <h2>Kesyon Moun Poze Souvan</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Ki zòn nou sèvi?</h3>
+                    <p class="faq-answer">Nou sèvi tout borough nan NYC, sa vle di Manhattan, Brooklyn, Queens, ak Bronx.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Èske gen yon minimòm pou ranmasaj?</h3>
+                    <p class="faq-answer">Wi, nou mande yon minimòm de 1000 resipyan pou sèvis ranmasaj nou an.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Kijan mwen prepare boutèy ak bwat mwen yo?</h3>
+                    <p class="faq-answer">Triye boutèy plastik ak plastik epi bwat ak bwat. Pou vè, pa plis pase 50 moso pa sak. Tanpri itilize sak transparan epi ekri kantite moso yo klèman sou sak la. Pou pi bon rezilta, ekri kantite a sou yon ti moso katon epi mete li anndan sak la kote li fasil pou chofè a wè li.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 Cash For Bottles and Cans | <a href="tel:3477498146">347-749-8146</a></p>
         </div>
     </div>
     
-    <div class="footer">
-        <p>WWW.CASHFORBOTTLES.COM</p>
-        <p>Cash For Bottles - NYC Bottle and Can Pickup Service</p>
-        <p>Call: <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a></p>
-        <p>&copy; 2025 Cash For Bottles. All rights reserved.</p>
-    </div>
-
-    <!-- SEO enhancements with structured data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Cash For Bottles",
-      "description": "Get cash for your bottles and cans! We provide convenient pickup service throughout NYC.",
-      "url": "https://www.cashforbottles.com",
-      "telephone": "3477498146",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "New York",
-        "addressRegion": "NY",
-        "addressCountry": "US"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "09:00",
-        "closes": "19:00"
-      }
-    }
+    <!-- Language Switcher JavaScript -->
+    <script>
+        function changeLanguage(lang) {
+            // Hide all language content
+            document.querySelectorAll('[lang]').forEach(function(element) {
+                element.style.display = 'none';
+            });
+            
+            // Show the selected language content
+            document.querySelectorAll('[lang="' + lang + '"]').forEach(function(element) {
+                element.style.display = 'block';
+            });
+            
+            // Update active class on buttons
+            document.querySelectorAll('.language-button').forEach(function(button) {
+                button.classList.remove('active');
+            });
+            
+            // Add active class to the selected language button
+            document.querySelector('.language-button[onclick="changeLanguage(\'' + lang + '\')"]').classList.add('active');
+            
+            // Update HTML lang attribute
+            document.documentElement.setAttribute('lang', lang);
+            
+            // Save language preference to localStorage
+            localStorage.setItem('preferred_language', lang);
+        }
+        
+        // Check for saved language preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('preferred_language');
+            if (savedLanguage) {
+                changeLanguage(savedLanguage);
+            }
+        });
     </script>
-</body>
-</html>
