@@ -221,6 +221,15 @@
                 padding: 15px;
             }
             
+            .language-selector {
+                margin: 0 0 20px 0;
+            }
+            
+            .language-button {
+                padding: 8px 12px;
+                margin: 0 3px 8px 3px;
+            }
+            
             .title {
                 font-size: 2.5rem;
                 padding: 0 15px;
@@ -234,7 +243,7 @@
             .call-button {
                 font-size: 1.8rem;
                 padding: 1.2rem 2rem;
-                width: 80%;
+                width: 90%;
             }
             
             .faq-section h2 {
@@ -252,52 +261,98 @@
         
         @media (max-width: 480px) {
             .container {
-                padding: 10px;
+                padding: 10px 5px;
+            }
+            
+            .language-selector {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+            
+            .language-button {
+                padding: 8px 10px;
+                font-size: 0.95rem;
+                margin: 0 3px 6px 3px;
+                min-width: 70px;
             }
             
             .truck-image {
                 margin-bottom: 20px;
+                max-width: 98%;
             }
             
             .title {
-                font-size: 2.2rem;
-                padding: 0 10px;
+                font-size: 2rem;
+                padding: 0 5px;
+                margin-bottom: 10px;
             }
             
             .tagline {
-                font-size: 1.3rem;
-                padding: 0 10px;
-                margin-bottom: 30px;
+                font-size: 1.2rem;
+                padding: 0 5px;
+                margin-bottom: 25px;
             }
             
             .call-button {
-                width: 85%;
-                font-size: 1.5rem;
-                padding: 1rem 1.5rem;
+                width: 95%;
+                font-size: 1.4rem;
+                padding: 1rem 0.8rem;
                 white-space: nowrap;
-                margin-bottom: 30px;
+                margin: 5px auto 25px;
+                border-radius: 40px;
             }
             
             .faq-section {
-                padding: 20px;
+                padding: 15px;
+                margin-top: 25px;
             }
             
             .faq-section h2 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
+                margin-bottom: 20px;
             }
             
             .faq-question {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                margin-bottom: 8px;
             }
             
             .faq-answer {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                line-height: 1.5;
             }
             
+            .faq-item {
+                margin-bottom: 20px;
+            }
+            
+            .footer {
+                margin-top: 30px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Additional Small Mobile Optimization */
+        @media (max-width: 375px) {
             .language-button {
-                padding: 6px 10px;
-                font-size: 0.8rem;
-                margin-bottom: 5px;
+                padding: 6px 8px;
+                font-size: 0.85rem;
+                margin: 0 2px 5px 2px;
+                min-width: 60px;
+            }
+            
+            .call-button {
+                font-size: 1.2rem;
+                padding: 0.9rem 0.6rem;
+            }
+            
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
             }
         }
     </style>
