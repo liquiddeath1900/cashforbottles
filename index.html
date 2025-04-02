@@ -15,7 +15,10 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cashforbottles.com">
     
-    <!-- Structured Data for SEO -->
+    <!-- Canonical URL to prevent duplicate content issues -->
+    <link rel="canonical" href="https://cashforbottles.com/" />
+    
+    <!-- Structured Data for SEO - Enhanced version -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -37,8 +40,27 @@
           "longitude": -74.0060
         },
         "geoRadius": "20"
-      }
+      },
+      "potentialAction": {
+        "@type": "PhoneAction",
+        "name": "Call for Bottle Pickup",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "tel:3477498146"
+        }
+      },
+      "priceRange": "$$",
+      "paymentAccepted": "Cash"
     }
+    </script>
+    
+    <!-- Google Analytics with correct Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SFTRSQ48P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SFTRSQ48P');
     </script>
     
     <style>
@@ -102,6 +124,9 @@
             margin-bottom: 30px;
             border: none;
             background: transparent;
+            width: auto; /* Let the max-width control the sizing */
+            object-fit: contain; /* Ensure image fits properly */
+            loading: lazy; /* Lazy load the image for performance */
         }
         
         /* Call Button */
@@ -215,6 +240,11 @@
             display: block;
         }
         
+        /* Language-specific adjustments */
+        #ru-content .call-button {
+            font-size: 1.9rem;
+        }
+        
         /* Media Queries */
         @media (max-width: 768px) {
             .container {
@@ -244,6 +274,10 @@
                 font-size: 1.8rem;
                 padding: 1.2rem 2rem;
                 width: 90%;
+            }
+            
+            #ru-content .call-button {
+                font-size: 1.6rem;
             }
             
             .faq-section h2 {
@@ -303,6 +337,10 @@
                 border-radius: 40px;
             }
             
+            #ru-content .call-button {
+                font-size: 1.3rem;
+            }
+            
             .faq-section {
                 padding: 15px;
                 margin-top: 25px;
@@ -347,6 +385,10 @@
                 padding: 0.9rem 0.6rem;
             }
             
+            #ru-content .call-button {
+                font-size: 1.1rem;
+            }
+            
             .title {
                 font-size: 1.8rem;
             }
@@ -368,7 +410,7 @@
             <button class="language-button" onclick="changeLanguage('ht')">Kreyòl</button>
         </div>
 
-        <img src="an-illustration-of-a-2024-isuzu-box-truc_LYNF_9vwQ7asq0Zg1ETJpg_bfdezE5PSCSmCOfAQFv2uQ.png" alt="Cash For Bottles Pickup Truck" class="truck-image">
+        <img src="an-illustration-of-a-2024-isuzu-box-truc_LYNF_9vwQ7asq0Zg1ETJpg_bfdezE5PSCSmCOfAQFv2uQ.png" alt="Cash For Bottles Pickup Truck in NYC - Bottle Recycling Service" class="truck-image" loading="lazy">
         
         <!-- English Content -->
         <div id="en-content" class="lang-content active">
