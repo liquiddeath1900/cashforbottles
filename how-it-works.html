@@ -89,7 +89,7 @@
             background-color: #FF5722;
             border-radius: 10px;
             padding: 30px;
-            margin-top: 30px;
+            margin-top: 60px;
             text-align: center;
             color: white;
         }
@@ -137,6 +137,47 @@
             text-decoration: underline;
         }
         
+        /* Language Selector Styles */
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            z-index: 1000;
+        }
+
+        .language-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin: 0 5px 5px 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .language-button:hover {
+            background-color: white;
+            color: #d2b275;
+        }
+
+        .language-button.active {
+            background-color: white;
+            color: #d2b275;
+            font-weight: bold;
+        }
+
+        /* Language Content Display */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+        
         @media (max-width: 768px) {
             .process-step {
                 flex: none;
@@ -158,61 +199,312 @@
             <a href="faq.html">FAQ</a>
         </div>
         
-        <!-- Header -->
-        <h1 class="title">How Our NYC Bottle Pickup Service Works</h1>
-        <p class="tagline">Simple, Convenient, and Rewarding</p>
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <button class="language-button active" onclick="changeLanguage('en')">English</button>
+            <button class="language-button" onclick="changeLanguage('es')">Español</button>
+            <button class="language-button" onclick="changeLanguage('zh')">中文</button>
+            <button class="language-button" onclick="changeLanguage('ru')">Русский</button>
+            <button class="language-button" onclick="changeLanguage('ht')">Kreyòl</button>
+        </div>
         
-        <!-- Process Steps -->
-        <div class="process-container">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <h2 class="step-title">Schedule Your Pickup</h2>
-                <p class="step-description">Call us at <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> to schedule a convenient pickup time for your bottles and cans. We serve all five boroughs of NYC: Manhattan, Brooklyn, Queens, Bronx, and Staten Island.</p>
+        <!-- English Content -->
+        <div id="en-content" class="lang-content active">
+            <!-- Header -->
+            <h1 class="title">How Our NYC Bottle Pickup Service Works</h1>
+            <p class="tagline">Simple, Convenient, and Rewarding</p>
+            
+            <!-- Process Steps -->
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h2 class="step-title">Schedule Your Pickup</h2>
+                    <p class="step-description">Call us at <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> to schedule a convenient pickup time for your bottles and cans. We serve all five boroughs of NYC: Manhattan, Brooklyn, Queens, Bronx, and Staten Island.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h2 class="step-title">Prepare Your Bottles & Cans</h2>
+                    <p class="step-description">Sort your bottles and cans (plastic with plastic, cans with cans). Count them yourself and mark the quantity on each bag clearly. For glass, limit to 50 pieces per bag. Use transparent bags. Our minimum pickup is 1000 containers. Our drivers will verify the count to ensure fairness.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h2 class="step-title">Get Paid in Cash</h2>
+                    <p class="step-description">Our driver will arrive at your location, verify your count of bottles and cans, and pay you cash on the spot. We pay the full current deposit value for each eligible container in New York State.</p>
+                </div>
             </div>
             
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <h2 class="step-title">Prepare Your Bottles & Cans</h2>
-                <p class="step-description">Sort your bottles and cans (plastic with plastic, cans with cans). For glass, limit to 50 pieces per bag. Use transparent bags and mark the number of containers on each bag. Our minimum pickup is 1000 containers.</p>
+            <!-- Additional Information -->
+            <div class="faq-section">
+                <h2>Why Choose Our NYC Bottle Pickup Service?</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Save Time and Effort</h3>
+                    <p class="faq-answer">No more waiting in lines at redemption centers or making multiple trips to return your bottles and cans. Our service comes directly to your home or business, saving you valuable time and energy.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Environmentally Friendly</h3>
+                    <p class="faq-answer">By using our service, you're contributing to NYC's recycling efforts and helping reduce waste. Each bottle or can recycled means one less container in landfills or polluting our environment.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Convenient for Businesses</h3>
+                    <p class="faq-answer">We work with restaurants, bars, offices, and other businesses across NYC to provide regular bottle pickup services. Contact us to set up a recurring schedule that works for your needs.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What Containers Do You Accept?</h3>
+                    <p class="faq-answer">We accept all New York State deposit bottles and cans, including beer, soda, water, and other beverage containers that have "NY 5¢" printed on them. This includes plastic bottles, glass bottles, and aluminum cans.</p>
+                </div>
             </div>
             
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <h2 class="step-title">Get Paid in Cash</h2>
-                <p class="step-description">Our driver will arrive at your location, verify your count of bottles and cans, and pay you cash on the spot. We pay the full current deposit value for each eligible container in New York State.</p>
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Turn Your Bottles Into Cash?</h2>
+                <p class="cta-description">Schedule your pickup today and experience the easiest way to redeem your bottles and cans in NYC.</p>
+                <a href="tel:3477498146" class="cta-button">CALL NOW: 347-749-8146</a>
             </div>
         </div>
         
-        <!-- Additional Information -->
-        <div class="faq-section">
-            <h2>Why Choose Our NYC Bottle Pickup Service?</h2>
+        <!-- Spanish Content -->
+        <div id="es-content" class="lang-content">
+            <!-- Header -->
+            <h1 class="title">Cómo Funciona Nuestro Servicio de Recogida de Botellas en NYC</h1>
+            <p class="tagline">Simple, Conveniente y Rentable</p>
             
-            <div class="faq-item">
-                <h3 class="faq-question">Save Time and Effort</h3>
-                <p class="faq-answer">No more waiting in lines at redemption centers or making multiple trips to return your bottles and cans. Our service comes directly to your home or business, saving you valuable time and energy.</p>
+            <!-- Process Steps -->
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h2 class="step-title">Programe Su Recogida</h2>
+                    <p class="step-description">Llámenos al <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> para programar un horario conveniente para recoger sus botellas y latas. Servimos a los cinco distritos de NYC: Manhattan, Brooklyn, Queens, Bronx y Staten Island.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h2 class="step-title">Prepare Sus Botellas y Latas</h2>
+                    <p class="step-description">Clasifique sus botellas y latas (plástico con plástico, latas con latas). Cuéntelas usted mismo y marque claramente la cantidad en cada bolsa. Para el vidrio, limite a 50 piezas por bolsa. Use bolsas transparentes. Nuestro mínimo de recogida es de 1000 envases. Nuestros conductores verificarán el conteo para garantizar la equidad.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h2 class="step-title">Reciba Pago en Efectivo</h2>
+                    <p class="step-description">Nuestro conductor llegará a su ubicación, verificará su conteo de botellas y latas, y le pagará en efectivo en el momento. Pagamos el valor total del depósito actual por cada envase elegible en el Estado de Nueva York.</p>
+                </div>
             </div>
             
-            <div class="faq-item">
-                <h3 class="faq-question">Environmentally Friendly</h3>
-                <p class="faq-answer">By using our service, you're contributing to NYC's recycling efforts and helping reduce waste. Each bottle or can recycled means one less container in landfills or polluting our environment.</p>
+            <!-- Additional Information -->
+            <div class="faq-section">
+                <h2>¿Por Qué Elegir Nuestro Servicio de Recogida de Botellas en NYC?</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Ahorre Tiempo y Esfuerzo</h3>
+                    <p class="faq-answer">No más esperas en las filas de los centros de canje o múltiples viajes para devolver sus botellas y latas. Nuestro servicio llega directamente a su hogar o negocio, ahorrándole tiempo y energía valiosos.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Respetuoso con el Medio Ambiente</h3>
+                    <p class="faq-answer">Al usar nuestro servicio, está contribuyendo a los esfuerzos de reciclaje de NYC y ayudando a reducir los desechos. Cada botella o lata reciclada significa un envase menos en los vertederos o contaminando nuestro medio ambiente.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Conveniente para Negocios</h3>
+                    <p class="faq-answer">Trabajamos con restaurantes, bares, oficinas y otros negocios en toda NYC para proporcionar servicios regulares de recogida de botellas. Contáctenos para establecer un horario recurrente que funcione para sus necesidades.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Qué Envases Aceptan?</h3>
+                    <p class="faq-answer">Aceptamos todas las botellas y latas de depósito del Estado de Nueva York, incluyendo cerveza, refrescos, agua y otros envases de bebidas que tienen impreso "NY 5¢". Esto incluye botellas de plástico, botellas de vidrio y latas de aluminio.</p>
+                </div>
             </div>
             
-            <div class="faq-item">
-                <h3 class="faq-question">Convenient for Businesses</h3>
-                <p class="faq-answer">We work with restaurants, bars, offices, and other businesses across NYC to provide regular bottle pickup services. Contact us to set up a recurring schedule that works for your needs.</p>
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">¿Listo para Convertir Sus Botellas en Efectivo?</h2>
+                <p class="cta-description">Programe su recogida hoy y experimente la forma más fácil de canjear sus botellas y latas en NYC.</p>
+                <a href="tel:3477498146" class="cta-button">LLAME AHORA: 347-749-8146</a>
+            </div>
+        </div>
+        <!-- Chinese Content -->
+        <div id="zh-content" class="lang-content">
+            <!-- Header -->
+            <h1 class="title">我们的纽约市瓶子回收服务如何运作</h1>
+            <p class="tagline">简单、便捷且有回报</p>
+            
+            <!-- Process Steps -->
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h2 class="step-title">安排您的收集时间</h2>
+                    <p class="step-description">拨打 <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> 安排方便的瓶子和罐子收集时间。我们服务纽约市的五个区：曼哈顿、布鲁克林、皇后区、布朗克斯和斯塔滕岛。</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h2 class="step-title">准备您的瓶子和罐子</h2>
+                    <p class="step-description">对瓶子和罐子进行分类（塑料与塑料，罐子与罐子）。自己计数并在每个袋子上清楚标明数量。对于玻璃，每袋限制50件。使用透明袋。我们的最低收集量是1000个容器。我们的司机将核实数量以确保公平。</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h2 class="step-title">获得现金支付</h2>
+                    <p class="step-description">我们的司机将到达您的位置，核实您的瓶子和罐子数量，并当场用现金支付。我们为纽约州的每个符合条件的容器支付全额当前押金价值。</p>
+                </div>
             </div>
             
-            <div class="faq-item">
-                <h3 class="faq-question">What Containers Do You Accept?</h3>
-                <p class="faq-answer">We accept all New York State deposit bottles and cans, including beer, soda, water, and other beverage containers that have "NY 5¢" printed on them. This includes plastic bottles, glass bottles, and aluminum cans.</p>
+            <!-- Additional Information -->
+            <div class="faq-section">
+                <h2>为什么选择我们的纽约市瓶子回收服务？</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">节省时间和精力</h3>
+                    <p class="faq-answer">不再需要在回收中心排队等候或多次往返返还瓶子和罐子。我们的服务直接到您的家或企业，为您节省宝贵的时间和精力。</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">环保友好</h3>
+                    <p class="faq-answer">通过使用我们的服务，您正在为纽约市的回收工作做出贡献并帮助减少废物。每回收一个瓶子或罐子，就意味着减少一个容器进入垃圾填埋场或污染我们的环境。</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">对企业方便</h3>
+                    <p class="faq-answer">我们与纽约市各地的餐厅、酒吧、办公室和其他企业合作，提供定期瓶子回收服务。联系我们设置适合您需求的定期时间表。</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">您接受哪些容器？</h3>
+                    <p class="faq-answer">我们接受所有纽约州的押金瓶子和罐子，包括啤酒、汽水、水和其他印有"NY 5¢"的饮料容器。这包括塑料瓶、玻璃瓶和铝罐。</p>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">准备好将您的瓶子变成现金了吗？</h2>
+                <p class="cta-description">今天就安排您的收集，体验在纽约市兑换瓶子和罐子的最简单方式。</p>
+                <a href="tel:3477498146" class="cta-button">立即致电：347-749-8146</a>
             </div>
         </div>
         
-        <!-- Call to Action -->
-        <div class="cta-section">
-            <h2 class="cta-title">Ready to Turn Your Bottles Into Cash?</h2>
-            <p class="cta-description">Schedule your pickup today and experience the easiest way to redeem your bottles and cans in NYC.</p>
-            <a href="tel:3477498146" class="cta-button">CALL NOW: 347-749-8146</a>
+        <!-- Russian Content -->
+        <div id="ru-content" class="lang-content">
+            <!-- Header -->
+            <h1 class="title">Как Работает Наш Сервис по Сбору Бутылок в Нью-Йорке</h1>
+            <p class="tagline">Просто, Удобно и Выгодно</p>
+            
+            <!-- Process Steps -->
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h2 class="step-title">Запланируйте Вывоз</h2>
+                    <p class="step-description">Позвоните нам по телефону <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> чтобы запланировать удобное время для сбора ваших бутылок и банок. Мы обслуживаем все пять районов Нью-Йорка: Манхэттен, Бруклин, Квинс, Бронкс и Статен-Айленд.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h2 class="step-title">Подготовьте Ваши Бутылки и Банки</h2>
+                    <p class="step-description">Отсортируйте бутылки и банки (пластик с пластиком, банки с банками). Посчитайте их самостоятельно и четко укажите количество на каждом пакете. Для стекла ограничьте до 50 штук в пакете. Используйте прозрачные пакеты. Наш минимальный вывоз - 1000 контейнеров. Наши водители проверят количество для обеспечения справедливости.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h2 class="step-title">Получите Оплату Наличными</h2>
+                    <p class="step-description">Наш водитель прибудет к вам, проверит количество бутылок и банок, и оплатит наличными на месте. Мы платим полную текущую стоимость депозита за каждый подходящий контейнер в штате Нью-Йорк.</p>
+                </div>
+            </div>
+            
+            <!-- Additional Information -->
+            <div class="faq-section">
+                <h2>Почему Стоит Выбрать Наш Сервис по Сбору Бутылок в Нью-Йорке?</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Экономьте Время и Усилия</h3>
+                    <p class="faq-answer">Больше никаких очередей в пунктах приема или многократных поездок для возврата бутылок и банок. Наш сервис приезжает прямо к вашему дому или бизнесу, экономя ваше ценное время и энергию.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Экологически Чистый</h3>
+                    <p class="faq-answer">Используя наш сервис, вы вносите вклад в усилия по переработке в Нью-Йорке и помогаете сократить отходы. Каждая переработанная бутылка или банка означает на один контейнер меньше на свалках или загрязняющих нашу окружающую среду.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Удобно для Бизнеса</h3>
+                    <p class="faq-answer">Мы работаем с ресторанами, барами, офисами и другими предприятиями по всему Нью-Йорку, предоставляя регулярные услуги по сбору бутылок. Свяжитесь с нами, чтобы установить повторяющийся график, который подходит для ваших нужд.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Какие Контейнеры Вы Принимаете?</h3>
+                    <p class="faq-answer">Мы принимаем все бутылки и банки с депозитом штата Нью-Йорк, включая пиво, газировку, воду и другие контейнеры для напитков, на которых напечатано "NY 5¢". Это включает пластиковые бутылки, стеклянные бутылки и алюминиевые банки.</p>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">Готовы Превратить Ваши Бутылки в Наличные?</h2>
+                <p class="cta-description">Запланируйте ваш вывоз сегодня и испытайте самый простой способ обменять ваши бутылки и банки в Нью-Йорке.</p>
+                <a href="tel:3477498146" class="cta-button">ЗВОНИТЕ СЕЙЧАС: 347-749-8146</a>
+            </div>
+        </div>
+        
+        <!-- Haitian Creole Content -->
+        <div id="ht-content" class="lang-content">
+            <!-- Header -->
+            <h1 class="title">Kijan Sèvis Ranmasaj Boutèy Nou nan NYC Fonksyone</h1>
+            <p class="tagline">Senp, Pratik, ak Rekonpanse</p>
+            
+            <!-- Process Steps -->
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h2 class="step-title">Planifye Ranmasaj Ou</h2>
+                    <p class="step-description">Rele nou nan <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> pou planifye yon lè ki bon pou ranmasaj boutèy ak bwat ou yo. Nou sèvi tout senk minisipalite NYC yo: Manhattan, Brooklyn, Queens, Bronx, ak Staten Island.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h2 class="step-title">Prepare Boutèy ak Bwat Ou yo</h2>
+                    <p class="step-description">Triye boutèy ak bwat ou yo (plastik avèk plastik, bwat avèk bwat). Konte yo poukont ou epi make kantite a klèman sou chak sak. Pou vè, limite a 50 moso pa sak. Itilize sak transparan. Ranmasaj minimòm nou an se 1000 veso. Chofè nou yo pral verifye kont la pou asire li jis.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h2 class="step-title">Resevwa Lajan Kach</h2>
+                    <p class="step-description">Chofè nou an pral rive nan kote ou ye a, verifye kantite boutèy ak bwat ou yo, epi peye ou lajan kach sou plas. Nou peye valè depo aktyèl konplè pou chak veso ki kalifye nan Eta New York.</p>
+                </div>
+            </div>
+            
+            <!-- Additional Information -->
+            <div class="faq-section">
+                <h2>Poukisa Chwazi Sèvis Ranmasaj Boutèy Nou an nan NYC?</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Ekonomize Tan ak Efò</h3>
+                    <p class="faq-answer">Pa gen plis atant nan liy nan sant redanmsyon yo oswa plizyè vwayaj pou retounen boutèy ak bwat ou yo. Sèvis nou an vini dirèkteman lakay ou oswa biznis ou, ekonomize tan ak enèji presye ou.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Respekte Anviwònman an</h3>
+                    <p class="faq-answer">Lè ou itilize sèvis nou an, ou kontribye nan efò resiklaj NYC yo epi ede redui fatra. Chak boutèy oswa bwat ki resikle vle di yon veso mwens nan fatra oswa k ap polye anviwònman nou an.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Pratik pou Biznis yo</h3>
+                    <p class="faq-answer">Nou travay avèk restoran, ba, biwo, ak lòt biznis atravè NYC pou bay sèvis ranmasaj boutèy regilye. Kontakte nou pou mete yon orè repete ki mache pou bezwen ou yo.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Ki Veso Nou Aksepte?</h3>
+                    <p class="faq-answer">Nou aksepte tout boutèy ak bwat depo Eta New York, ki gen ladan byè, soda, dlo, ak lòt veso bwason ki gen "NY 5¢" enprime sou yo. Sa a gen ladan boutèy plastik, boutèy vè, ak bwat aliminyòm.</p>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">Prè pou Chanje Boutèy Ou yo an Lajan Kach?</h2>
+                <p class="cta-description">Planifye ranmasaj ou jodi a epi fè eksperyans fason ki pi fasil pou rachte boutèy ak bwat ou yo nan NYC.</p>
+                <a href="tel:3477498146" class="cta-button">RELE KOUNYE A: 347-749-8146</a>
+            </div>
         </div>
         
         <!-- Footer -->
@@ -220,5 +512,40 @@
             <p>&copy; 2025 Cash For Bottles and Cans NYC | Brooklyn, Queens, Manhattan, Bronx, Staten Island | <a href="tel:3477498146">347-749-8146</a></p>
         </div>
     </div>
+    
+    <!-- Language Switcher JavaScript -->
+    <script>
+        function changeLanguage(lang) {
+            // Hide all language content
+            document.querySelectorAll('.lang-content').forEach(function(element) {
+                element.classList.remove('active');
+            });
+            
+            // Show the selected language content
+            document.getElementById(lang + '-content').classList.add('active');
+            
+            // Update active class on buttons
+            document.querySelectorAll('.language-button').forEach(function(button) {
+                button.classList.remove('active');
+            });
+            
+            // Add active class to the selected language button
+            document.querySelector('.language-button[onclick="changeLanguage(\'' + lang + '\')"]').classList.add('active');
+            
+            // Update HTML lang attribute
+            document.documentElement.setAttribute('lang', lang);
+            
+            // Save language preference to localStorage
+            localStorage.setItem('preferred_language', lang);
+        }
+        
+        // Check for saved language preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('preferred_language');
+            if (savedLanguage) {
+                changeLanguage(savedLanguage);
+            }
+        });
+    </script>
 </body>
 </html>
