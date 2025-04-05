@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Frequently Asked Questions | NYC Bottle Pickup | Cash For Bottles NYC</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Find answers to common questions about our NYC bottle pickup service. Learn about eligible containers, payment rates, minimum requirements, and service areas.">
+    <meta name="keywords" content="bottle pickup FAQ, NYC can redemption questions, bottle collection service questions, NYC bottle deposit questions, bottle recycling FAQ">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Frequently Asked Questions | NYC Bottle Pickup | Cash For Bottles NYC">
+    <meta property="og:description" content="Find answers to common questions about our bottle pickup service in NYC.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cashforbottles.com/faq.html">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cashforbottles.com/faq.html" />
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SFTRSQ48P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SFTRSQ48P');
+    </script>
+    
+    <!-- Same CSS styles as main page -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Additional styles for FAQ page */
+        .faq-header {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .faq-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .faq-category {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-category:hover, .faq-category.active {
+            background-color: white;
+            color: #d2b275;
+        }
+        
+        .faq-container {
+            margin-bottom: 50px;
+        }
+        
+        .faq-section {
+            margin-bottom: 30px;
+        }
+        
+        .category-title {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navigation {
+            margin-bottom: 30px;
+        }
+        
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="index.html">Home</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="#" onclick="alert('Coming soon!')">Service Areas</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        
+        <!-- FAQ Header -->
+        <div class="faq-header">
+            <h1 class="title">Frequently Asked Questions</h1>
+            <p class="tagline">Everything You Need to Know About Our NYC Bottle Pickup Service</p>
+        </div>
+        
+        <!-- FAQ Categories -->
+        <div class="faq-categories">
+            <div class="faq-category active" onclick="showCategory('general')">General Questions</div>
+            <div class="faq-category" onclick="showCategory('eligible')">Eligible Containers</div>
+            <div class="faq-category" onclick="showCategory('payment')">Payment & Pricing</div>
+            <div class="faq-category" onclick="showCategory('pickup')">Pickup Process</div>
+            <div class="faq-category" onclick="showCategory('business')">Business Services</div>
+        </div>
+        
+        <!-- FAQ Container -->
+        <div class="faq-container">
+            <!-- General Questions -->
+            <div id="general" class="faq-category-content">
+                <h2 class="category-title">General Questions</h2>
+                
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <h3 class="faq-question">What areas do you serve in NYC?</h3>
+                        <p class="faq-answer">We serve all five boroughs of New York City: Manhattan, Brooklyn, Queens, Bronx, and Staten Island. Our bottle pickup service is available throughout the entire city.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is there a minimum for pickup?</h3>
+                        <p class="faq-answer">Yes, we require a minimum of 1000 containers for our pickup service. This helps us maintain efficient routes and provide the best service to all our customers throughout NYC.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I schedule a pickup?</h3>
+                        <p class="faq-answer">Simply call us at <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> to schedule a pickup. We'll ask for your address, preferred pickup time, and an estimate of how many containers you have.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What days and hours do you operate?</h3>
+                        <p class="faq-answer">We operate seven days a week throughout NYC. Our typical pickup hours are from 8:00 AM to 8:00 PM, but we can sometimes accommodate earlier or later pickups by special arrangement.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How far in advance should I schedule a pickup?</h3>
+                        <p class="faq-answer">We recommend scheduling at least 24-48 hours in advance, especially for weekend pickups which tend to book up quickly. For urgent same-day pickups, call us as early as possible, and we'll do our best to accommodate your request.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Eligible Containers -->
+            <div id="eligible" class="faq-category-content" style="display: none;">
+                <h2 class="category-title">Eligible Containers</h2>
+                
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <h3 class="faq-question">What types of bottles and cans do you accept?</h3>
+                        <p class="faq-answer">We accept all New York State deposit containers with "NY 5¢" printed on them. This includes beer bottles and cans, soda containers, water bottles, sports drink bottles, and other beverage containers covered by the NY State Bottle Bill.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do you accept wine or liquor bottles?</h3>
+                        <p class="faq-answer">No, wine and liquor bottles are not eligible for the 5¢ deposit in New York State, so we do not accept them as part of our pickup service. Look for the "NY 5¢" marking to identify eligible containers.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do you accept containers from other states?</h3>
+                        <p class="faq-answer">No, we can only accept containers with the "NY 5¢" marking, as these are the only ones redeemable in New York State. Containers from other states (like Connecticut or Massachusetts) are not eligible.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can you take juice containers or milk bottles?</h3>
+                        <p class="faq-answer">Most juice containers and milk bottles are not eligible for deposit in New York State. The only exceptions would be certain juice containers that specifically have the "NY 5¢" marking.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do containers need to be intact?</h3>
+                        <p class="faq-answer">Yes, containers should be reasonably intact with the barcode and "NY 5¢" marking visible. Severely crushed or damaged containers may not be accepted as they cannot be properly processed.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment & Pricing -->
+            <div id="payment" class="faq-category-content" style="display: none;">
+                <h2 class="category-title">Payment & Pricing</h2>
+                
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <h3 class="faq-question">How much do you pay per container?</h3>
+                        <p class="faq-answer">We pay the full 5¢ deposit value for each eligible container. There are no hidden fees or deductions - you get the full redemption value for all your bottles and cans.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How is payment made?</h3>
+                        <p class="faq-answer">Payment is made in cash at the time of pickup, after your containers have been counted. Our driver will provide you with a receipt showing the total number of containers and the amount paid.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is there a service fee?</h3>
+                        <p class="faq-answer">No, there is no service fee. You receive the full 5¢ per container. Our business model works because we process large volumes of containers efficiently.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do you offer any volume bonuses?</h3>
+                        <p class="faq-answer">For very large quantities (5,000+ containers) or regular business pickups, we may be able to offer additional incentives. Please call us to discuss your specific situation.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do you count the containers?</h3>
+                        <p class="faq-answer">Our drivers are trained to count accurately and efficiently. For transparent bags with clearly marked quantities, we'll verify the count. For unmarked bags, we'll count each container at pickup.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pickup Process -->
+            <div id="pickup" class="faq-category-content" style="display: none;">
+                <h2 class="category-title">Pickup Process</h2>
+                
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I prepare my bottles and cans?</h3>
+                        <p class="faq-answer">Sort plastic bottles with plastic and cans with cans. For glass, no more than 50 pieces per bag. Use transparent bags and write the number of pieces on each bag clearly. This helps speed up the pickup process.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do containers need to be clean?</h3>
+                        <p class="faq-answer">Containers should be reasonably clean and empty, but they don't need to be thoroughly washed. A quick rinse to remove most residue is sufficient. Excessively dirty or smelly containers may be rejected.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Where should I place my containers for pickup?</h3>
+                        <p class="faq-answer">For houses, please place containers outside near your entrance at the scheduled pickup time. For
+                          <div class="faq-item">
+                        <h3 class="faq-question">Where should I place my containers for pickup?</h3>
+                        <p class="faq-answer">For houses, please place containers outside near your entrance at the scheduled pickup time. For apartments, our driver will call you when they arrive, and you can bring the containers down or direct them to your location. For businesses, we can come inside to collect the containers.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What if I'm not home during the pickup time?</h3>
+                        <p class="faq-answer">We prefer that someone is present during pickup to verify the count and receive payment. If that's not possible, we can make special arrangements - please discuss this when scheduling your pickup.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How long does the pickup process take?</h3>
+                        <p class="faq-answer">The pickup process typically takes between 10-30 minutes, depending on the quantity of containers and how they're organized. Well-sorted containers in clearly marked bags speed up the process considerably.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Business Services -->
+            <div id="business" class="faq-category-content" style="display: none;">
+                <h2 class="category-title">Business Services</h2>
+                
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do you offer special services for businesses?</h3>
+                        <p class="faq-answer">Yes, we offer specialized pickup services for restaurants, bars, cafes, offices, and other businesses throughout NYC. We can arrange regular scheduled pickups on a weekly or bi-weekly basis.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can you provide collection bins for our business?</h3>
+                        <p class="faq-answer">For businesses with regular pickup schedules, we can provide collection bins to help you organize your bottle and can collection. Please ask about this service when setting up your business account.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do you offer any documentation for business pickups?</h3>
+                        <p class="faq-answer">Yes, we provide detailed receipts for all business pickups. For businesses requiring additional documentation for accounting or sustainability reporting, we can provide monthly statements.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is there a minimum quantity for business pickups?</h3>
+                        <p class="faq-answer">The minimum is still 1000 containers, but for regular business pickups, we can sometimes be flexible depending on your location and the frequency of service needed.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can you pick up during off-hours for businesses?</h3>
+                        <p class="faq-answer">Yes, we understand that businesses like restaurants and bars may prefer early morning or late night pickups. We can arrange pickups during off-hours to minimize disruption to your business operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2 class="cta-title">Still Have Questions?</h2>
+            <p class="cta-description">Our team is ready to help. Call us for more information or to schedule your first pickup.</p>
+            <a href="tel:3477498146" class="cta-button">CALL NOW: 347-749-8146</a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 Cash For Bottles and Cans NYC | <a href="brooklyn.html">Brooklyn</a>, <a href="queens.html">Queens</a>, <a href="manhattan.html">Manhattan</a>, <a href="bronx.html">Bronx</a>, <a href="staten-island.html">Staten Island</a> | <a href="tel:3477498146">347-749-8146</a></p>
+        </div>
+    </div>
+    
+    <!-- JavaScript for FAQ Categories -->
+    <script>
+        function showCategory(categoryId) {
+            // Hide all category content
+            document.querySelectorAll('.faq-category-content').forEach(function(content) {
+                content.style.display = 'none';
+            });
+            
+            // Show selected category
+            document.getElementById(categoryId).style.display = 'block';
+            
+            // Update active class on category buttons
+            document.querySelectorAll('.faq-category').forEach(function(button) {
+                button.classList.remove('active');
+            });
+            
+            // Find the clicked button by checking which ones have the onclick that includes the categoryId
+            document.querySelectorAll('.faq-category').forEach(function(button) {
+                if (button.getAttribute('onclick').includes(categoryId)) {
+                    button.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
