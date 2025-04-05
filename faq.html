@@ -1082,65 +1082,85 @@
     </div>
     
     <!-- JavaScript for Language Switching -->
-    <script>
-        function changeLanguage(lang) {
-            // Hide all language content
-            document.querySelectorAll('.lang-content').forEach(function(element) {
-                element.classList.remove('active');
-            });
-            
-            // Show the selected language content
-            document.getElementById(lang + '-content').classList.add('active');
-            
-            // Update active class on buttons
-            document.querySelectorAll('.language-button').forEach(function(button) {
-                button.classList.remove('active');
-            });
-            
-            // Add active class to the selected language button
-            document.querySelector('.language-button[onclick="changeLanguage(\'' + lang + '\')"]').classList.add('active');
-            
-            // Update HTML lang attribute
-            document.documentElement.setAttribute('lang', lang);
-            
-            // Save language preference to localStorage
-            localStorage.setItem('preferred_language', lang);
-        }
-        
-        // Check for saved language preference on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedLanguage = localStorage.getItem('preferred_language');
-            if (savedLanguage) {
-                changeLanguage(savedLanguage);
-            }
+   <script>
+    // Enhanced language switching function
+    function changeLanguage(lang) {
+        // Hide all language content
+        document.querySelectorAll('.lang-content').forEach(function(element) {
+            element.classList.remove('active');
         });
         
-        // JavaScript for FAQ Categories
-        function showCategory(categoryId) {
-            // Get the language from the category ID (e.g., 'en-general' => 'en')
-            const langPrefix = categoryId.split('-')[0];
+        // Show the selected language content
+        const langContent = document.getElementById(lang + '-content');
+        if (langContent) {
+            langContent.classList.add('active');
             
-            // Hide all category content for the current language
-            document.querySelectorAll(`[id^="${langPrefix}-"]`).forEach(function(content) {
-                content.style.display = 'none';
-            });
-            
-            // Show selected category
-            document.getElementById(categoryId).style.display = 'block';
-            
-            // Update active class on category buttons within the current language section
-            const languageContent = document.getElementById(`${langPrefix}-content`);
+            // Auto-select the first category for this language
+            const firstCategory = lang + '-general';
+            showCategory(firstCategory);
+        }
+        
+        // Update active class on buttons
+        document.querySelectorAll('.language-button').forEach(function(button) {
+            button.classList.remove('active');
+        });
+        
+        // Add active class to the selected language button
+        const langButton = document.querySelector('.language-button[onclick="changeLanguage(\'' + lang + '\')"]');
+        if (langButton) {
+            langButton.classList.add('active');
+        }
+        
+        // Update HTML lang attribute
+        document.documentElement.setAttribute('lang', lang);
+        
+        // Save language preference to localStorage
+        localStorage.setItem('preferred_language', lang);
+    }
+    
+    // Fixed category display function
+    function showCategory(categoryId) {
+        // Get the language from the category ID (e.g., 'en-general' => 'en')
+        const langPrefix = categoryId.split('-')[0];
+        
+        // Hide all category content for the current language
+        document.querySelectorAll(`.faq-category-content[id^="${langPrefix}-"]`).forEach(function(content) {
+            content.style.display = 'none';
+        });
+        
+        // Show selected category
+        const selectedCategory = document.getElementById(categoryId);
+        if (selectedCategory) {
+            selectedCategory.style.display = 'block';
+        }
+        
+        // Update active class on category buttons within the current language section
+        const languageContent = document.getElementById(`${langPrefix}-content`);
+        if (languageContent) {
             languageContent.querySelectorAll('.faq-category').forEach(function(button) {
                 button.classList.remove('active');
             });
             
             // Find the clicked button
             languageContent.querySelectorAll('.faq-category').forEach(function(button) {
-                if (button.getAttribute('onclick').includes(categoryId)) {
+                if (button.getAttribute('onclick') && button.getAttribute('onclick').includes(categoryId)) {
                     button.classList.add('active');
                 }
             });
         }
-    </script>
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedLanguage = localStorage.getItem('preferred_language');
+        if (savedLanguage) {
+            changeLanguage(savedLanguage);
+        } else {
+            // Default to English and show general category
+            changeLanguage('en');
+            showCategory('en-general');
+        }
+    });
+</script>
 </body>
 </html>
