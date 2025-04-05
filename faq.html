@@ -93,6 +93,47 @@
         .navigation a:hover {
             text-decoration: underline;
         }
+        
+        /* Language Selector Styles */
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            z-index: 1000;
+        }
+
+        .language-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin: 0 5px 5px 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .language-button:hover {
+            background-color: white;
+            color: #d2b275;
+        }
+
+        .language-button.active {
+            background-color: white;
+            color: #d2b275;
+            font-weight: bold;
+        }
+
+        /* Language Content Display */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -105,192 +146,933 @@
             <a href="faq.html">FAQ</a>
         </div>
         
-        <!-- FAQ Header -->
-        <div class="faq-header">
-            <h1 class="title">Frequently Asked Questions</h1>
-            <p class="tagline">Everything You Need to Know About Our NYC Bottle Pickup Service</p>
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <button class="language-button active" onclick="changeLanguage('en')">English</button>
+            <button class="language-button" onclick="changeLanguage('es')">Español</button>
+            <button class="language-button" onclick="changeLanguage('zh')">中文</button>
+            <button class="language-button" onclick="changeLanguage('ru')">Русский</button>
+            <button class="language-button" onclick="changeLanguage('ht')">Kreyòl</button>
+        </div>
+
+        <!-- English Content -->
+        <div id="en-content" class="lang-content active">
+            <!-- FAQ Header -->
+            <div class="faq-header">
+                <h1 class="title">Frequently Asked Questions</h1>
+                <p class="tagline">Everything You Need to Know About Our NYC Bottle Pickup Service</p>
+            </div>
+            
+            <!-- FAQ Categories -->
+            <div class="faq-categories">
+                <div class="faq-category active" onclick="showCategory('en-general')">General Questions</div>
+                <div class="faq-category" onclick="showCategory('en-eligible')">Eligible Containers</div>
+                <div class="faq-category" onclick="showCategory('en-payment')">Payment & Pricing</div>
+                <div class="faq-category" onclick="showCategory('en-pickup')">Pickup Process</div>
+                <div class="faq-category" onclick="showCategory('en-business')">Business Services</div>
+            </div>
+            
+            <!-- FAQ Container -->
+            <div class="faq-container">
+                <!-- General Questions -->
+                <div id="en-general" class="faq-category-content">
+                    <h2 class="category-title">General Questions</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">What areas do you serve in NYC?</h3>
+                            <p class="faq-answer">We serve all five boroughs of New York City: Manhattan, Brooklyn, Queens, Bronx, and Staten Island. Our bottle pickup service is available throughout the entire city.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Is there a minimum for pickup?</h3>
+                            <p class="faq-answer">Yes, we require a minimum of 1000 containers for our pickup service. This helps us maintain efficient routes and provide the best service to all our customers throughout NYC.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">How do I schedule a pickup?</h3>
+                            <p class="faq-answer">Simply call us at <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> to schedule a pickup. We'll ask for your address, preferred pickup time, and an estimate of how many containers you have.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">What days and hours do you operate?</h3>
+                            <p class="faq-answer">We operate six days a week throughout NYC. Our typical pickup hours are from 8:00 AM to 8:00 PM, but we can sometimes accommodate earlier or later pickups by special arrangement.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">How far in advance should I schedule a pickup?</h3>
+                            <p class="faq-answer">We recommend scheduling at least 24-48 hours in advance, especially for weekend pickups which tend to book up quickly. For urgent same-day pickups, call us as early as possible, and we'll do our best to accommodate your request.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Eligible Containers -->
+                <div id="en-eligible" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Eligible Containers</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">What types of bottles and cans do you accept?</h3>
+                            <p class="faq-answer">We accept all New York State deposit containers with "NY 5¢" printed on them. This includes beer bottles and cans, soda containers, water bottles, sports drink bottles, and other beverage containers covered by the NY State Bottle Bill.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Do you accept wine or liquor bottles?</h3>
+                            <p class="faq-answer">No, wine and liquor bottles are not eligible for the 5¢ deposit in New York State, so we do not accept them as part of our pickup service. Look for the "NY 5¢" marking to identify eligible containers.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Do you accept containers from other states?</h3>
+                            <p class="faq-answer">No, we can only accept containers with the "NY 5¢" marking, as these are the only ones redeemable in New York State. Containers from other states (like Connecticut or Massachusetts) are not eligible.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Can you take juice containers or milk bottles?</h3>
+                            <p class="faq-answer">Most juice containers and milk bottles are not eligible for deposit in New York State. The only exceptions would be certain juice containers that specifically have the "NY 5¢" marking.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Do containers need to be intact?</h3>
+                            <p class="faq-answer">Yes, containers should be reasonably intact with the barcode and "NY 5¢" marking visible. Severely crushed or damaged containers may not be accepted as they cannot be properly processed.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment & Pricing -->
+                <div id="en-payment" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Payment & Pricing</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">How much do you pay per container?</h3>
+                            <p class="faq-answer">We pay the full 5¢ deposit value for each eligible container. There are no hidden fees or deductions - you get the full redemption value for all your bottles and cans.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">How is payment made?</h3>
+                            <p class="faq-answer">Payment is made in cash at the time of pickup, after your containers have been counted. Our driver will provide you with a receipt showing the total number of containers and the amount paid.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Is there a service fee?</h3>
+                            <p class="faq-answer">No, there is no service fee. You receive the full 5¢ per container. Our business model works because we process large volumes of containers efficiently.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Do you offer any volume bonuses?</h3>
+                            <p class="faq-answer">For very large quantities (5,000+ containers) or regular business pickups, we may be able to offer additional incentives. Please call us to discuss your specific situation.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">How do you count the containers?</h3>
+                            <p class="faq-answer">Customers need to count and mark their containers. Our drivers verify the count at pickup to ensure it's fair for both the customer and our company. We recommend clearly marking the quantity on each transparent bag.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pickup Process -->
+                <div id="en-pickup" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Pickup Process</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">How do I prepare my bottles and cans?</h3>
+                            <p class="faq-answer">Sort plastic bottles with plastic and cans with cans. For glass, no more than 50 pieces per bag. Use transparent bags and write the number of pieces on each bag clearly. This helps speed up the pickup process.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Do containers need to be clean?</h3>
+                            <p class="faq-answer">Containers should be reasonably clean and empty, but they don't need to be thoroughly washed. A quick rinse to remove most residue is sufficient. Excessively dirty or smelly containers may be rejected.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Where should I place my containers for pickup?</h3>
+                            <p class="faq-answer">For houses, please place containers outside near your entrance at the scheduled pickup time. For apartments, our driver will call you when they arrive, and you can bring the containers down or direct them to your location. For businesses, we can come inside to collect the containers.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">What if I'm not home during the pickup time?</h3>
+                            <p class="faq-answer">We prefer that someone is present during pickup to verify the count and receive payment. If that's not possible, we can make special arrangements - please discuss this when scheduling your pickup.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">How long does the pickup process take?</h3>
+                            <p class="faq-answer">The pickup process typically takes between 10-30 minutes, depending on the quantity of containers and how they're organized. Well-sorted containers in clearly marked bags speed up the process considerably.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Services -->
+                <div id="en-business" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Business Services</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Do you offer special services for businesses?</h3>
+                            <p class="faq-answer">Yes, we offer specialized pickup services for restaurants, bars, cafes, offices, and other businesses throughout NYC. We can arrange regular scheduled pickups on a weekly or bi-weekly basis.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Can you provide collection bins for our business?</h3>
+                            <p class="faq-answer">For businesses with regular pickup schedules, we can provide collection bins to help you organize your bottle and can collection. Please ask about this service when setting up your business account.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Do you offer any documentation for business pickups?</h3>
+                            <p class="faq-answer">Yes, we provide detailed receipts for all business pickups. For businesses requiring additional documentation for accounting or sustainability reporting, we can provide monthly statements.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Is there a minimum quantity for business pickups?</h3>
+                            <p class="faq-answer">The minimum is still 1000 containers, but for regular business pickups, we can sometimes be flexible depending on your location and the frequency of service needed.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Can you pick up during off-hours for businesses?</h3>
+                            <p class="faq-answer">Yes, we understand that businesses like restaurants and bars may prefer early morning or late night pickups. We can arrange pickups during off-hours to minimize disruption to your business operations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">Still Have Questions?</h2>
+                <p class="cta-description">Our team is ready to help. Call us for more information or to schedule your first pickup.</p>
+                <a href="tel:3477498146" class="cta-button">CALL NOW: 347-749-8146</a>
+            </div>
         </div>
         
-        <!-- FAQ Categories -->
-        <div class="faq-categories">
-            <div class="faq-category active" onclick="showCategory('general')">General Questions</div>
-            <div class="faq-category" onclick="showCategory('eligible')">Eligible Containers</div>
-            <div class="faq-category" onclick="showCategory('payment')">Payment & Pricing</div>
-            <div class="faq-category" onclick="showCategory('pickup')">Pickup Process</div>
-            <div class="faq-category" onclick="showCategory('business')">Business Services</div>
+        <!-- Spanish Content -->
+        <div id="es-content" class="lang-content">
+            <!-- FAQ Header -->
+            <div class="faq-header">
+                <h1 class="title">Preguntas Frecuentes</h1>
+                <p class="tagline">Todo lo que Necesita Saber Sobre Nuestro Servicio de Recogida de Botellas en NYC</p>
+            </div>
+            
+            <!-- FAQ Categories -->
+            <div class="faq-categories">
+                <div class="faq-category active" onclick="showCategory('es-general')">Preguntas Generales</div>
+                <div class="faq-category" onclick="showCategory('es-eligible')">Envases Elegibles</div>
+                <div class="faq-category" onclick="showCategory('es-payment')">Pago y Precios</div>
+                <div class="faq-category" onclick="showCategory('es-pickup')">Proceso de Recogida</div>
+                <div class="faq-category" onclick="showCategory('es-business')">Servicios para Negocios</div>
+            </div>
+            
+            <!-- FAQ Container -->
+            <div class="faq-container">
+                <!-- General Questions -->
+                <div id="es-general" class="faq-category-content">
+                    <h2 class="category-title">Preguntas Generales</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Qué áreas atienden en NYC?</h3>
+                            <p class="faq-answer">Atendemos los cinco distritos de la Ciudad de Nueva York: Manhattan, Brooklyn, Queens, Bronx y Staten Island. Nuestro servicio de recogida de botellas está disponible en toda la ciudad.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Hay un mínimo para la recogida?</h3>
+                            <p class="faq-answer">Sí, requerimos un mínimo de 1000 envases para nuestro servicio de recogida. Esto nos ayuda a mantener rutas eficientes y proporcionar el mejor servicio a todos nuestros clientes en NYC.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Cómo programo una recogida?</h3>
+                            <p class="faq-answer">Simplemente llámenos al <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> para programar una recogida. Le preguntaremos su dirección, hora preferida de recogida y una estimación de cuántos envases tiene.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Qué días y horas operan?</h3>
+                            <p class="faq-answer">Operamos seis días a la semana en toda NYC. Nuestro horario típico de recogida es de 8:00 AM a 8:00 PM, pero a veces podemos acomodar recogidas más tempranas o tardías mediante arreglos especiales.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Con cuánta anticipación debo programar una recogida?</h3>
+                            <p class="faq-answer">Recomendamos programar con al menos 24-48 horas de anticipación, especialmente para recogidas de fin de semana que tienden a llenarse rápidamente. Para recogidas urgentes del mismo día, llámenos lo más temprano posible, y haremos lo mejor para acomodar su solicitud.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Elegant Spanish content for other categories would follow the same structure -->
+                <div id="es-eligible" class="faq-category-content" style="display: none;">
+                    <!-- Spanish content for eligible containers -->
+                    <h2 class="category-title">Envases Elegibles</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Qué tipos de botellas y latas aceptan?</h3>
+                            <p class="faq-answer">Aceptamos todos los envases con depósito del Estado de Nueva York con "NY 5¢" impreso en ellos. Esto incluye botellas y latas de cerveza, envases de refrescos, botellas de agua, botellas de bebidas deportivas y otros envases de bebidas cubiertos por la Ley de Botellas del Estado de NY.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Aceptan botellas de vino o licor?</h3>
+                            <p class="faq-answer">No, las botellas de vino y licor no son elegibles para el depósito de 5¢ en el Estado de Nueva York, por lo que no las aceptamos como parte de nuestro servicio de recogida. Busque la marca "NY 5¢" para identificar los envases elegibles.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Aceptan envases de otros estados?</h3>
+                            <p class="faq-answer">No, solo podemos aceptar envases con la marca "NY 5¢", ya que estos son los únicos canjeables en el Estado de Nueva York. Los envases de otros estados (como Connecticut o Massachusetts) no son elegibles.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Pueden recoger envases de jugo o botellas de leche?</h3>
+                            <p class="faq-answer">La mayoría de los envases de jugo y botellas de leche no son elegibles para depósito en el Estado de Nueva York. Las únicas excepciones serían ciertos envases de jugo que específicamente tienen la marca "NY 5¢".</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Los envases necesitan estar intactos?</h3>
+                            <p class="faq-answer">Sí, los envases deben estar razonablemente intactos con el código de barras y la marca "NY 5¢" visibles. Los envases severamente aplastados o dañados pueden no ser aceptados ya que no pueden ser procesados adecuadamente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="es-payment" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Pago y Precios</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Cuánto pagan por envase?</h3>
+                            <p class="faq-answer">Pagamos el valor completo del depósito de 5¢ por cada envase elegible. No hay tarifas ocultas ni deducciones - usted recibe el valor total de reembolso para todas sus botellas y latas.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Cómo se realiza el pago?</h3>
+                            <p class="faq-answer">El pago se realiza en efectivo en el momento de la recogida, después de contar sus envases. Nuestro conductor le proporcionará un recibo que muestra el número total de envases y la cantidad pagada.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Hay alguna tarifa de servicio?</h3>
+                            <p class="faq-answer">No, no hay tarifa de servicio. Usted recibe los 5¢ completos por envase. Nuestro modelo de negocio funciona porque procesamos grandes volúmenes de envases de manera eficiente.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Ofrecen bonificaciones por volumen?</h3>
+                            <p class="faq-answer">Para cantidades muy grandes (más de 5,000 envases) o recogidas regulares de negocios, podemos ofrecer incentivos adicionales. Llámenos para discutir su situación específica.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Cómo cuentan los envases?</h3>
+                            <p class="faq-answer">Los clientes deben contar y marcar sus envases. Nuestros conductores verifican el conteo en la recogida para garantizar que sea justo tanto para el cliente como para nuestra empresa. Recomendamos marcar claramente la cantidad en cada bolsa transparente.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="es-pickup" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Proceso de Recogida</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Cómo preparo mis botellas y latas?</h3>
+                            <p class="faq-answer">Clasifique las botellas de plástico con plástico y las latas con latas. Para vidrio, no más de 50 piezas por bolsa. Use bolsas transparentes y escriba claramente el número de piezas en cada bolsa. Esto ayuda a acelerar el proceso de recogida.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Los envases necesitan estar limpios?</h3>
+                            <p class="faq-answer">Los envases deben estar razonablemente limpios y vacíos, pero no necesitan estar completamente lavados. Un enjuague rápido para eliminar la mayoría de los residuos es suficiente. Los envases excesivamente sucios o con mal olor pueden ser rechazados.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Dónde debo colocar mis envases para la recogida?</h3>
+                            <p class="faq-answer">Para casas, por favor coloque los envases afuera cerca de su entrada a la hora programada de recogida. Para apartamentos, nuestro conductor le llamará cuando llegue, y usted puede bajar los envases o dirigirlos a su ubicación. Para negocios, podemos entrar para recoger los envases.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Qué pasa si no estoy en casa durante la hora de recogida?</h3>
+                            <p class="faq-answer">Preferimos que alguien esté presente durante la recogida para verificar el conteo y recibir el pago. Si eso no es posible, podemos hacer arreglos especiales - por favor discútalo cuando programe su recogida.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Cuánto tiempo toma el proceso de recogida?</h3>
+                            <p class="faq-answer">El proceso de recogida típicamente toma entre 10-30 minutos, dependiendo de la cantidad de envases y cómo estén organizados. Los envases bien clasificados en bolsas claramente marcadas aceleran considerablemente el proceso.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="es-business" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Servicios para Negocios</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Ofrecen servicios especiales para negocios?</h3>
+                            <p class="faq-answer">Sí, ofrecemos servicios especializados de recogida para restaurantes, bares, cafés, oficinas y otros negocios en toda NYC. Podemos organizar recogidas programadas regulares semanal o quincenalmente.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Pueden proporcionar contenedores de recolección para nuestro negocio?</h3>
+                            <p class="faq-answer">Para negocios con horarios regulares de recogida, podemos proporcionar contenedores de recolección para ayudarle a organizar su colección de botellas y latas. Por favor pregunte sobre este servicio cuando configure su cuenta de negocio.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Ofrecen alguna documentación para recogidas de negocios?</h3>
+                            <p class="faq-answer">Sí, proporcionamos recibos detallados para todas las recogidas de negocios. Para negocios que requieren documentación adicional para contabilidad o informes de sostenibilidad, podemos proporcionar estados mensuales.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Hay una cantidad mínima para recogidas de negocios?</h3>
+                            <p class="faq-answer">El mínimo sigue siendo 1000 envases, pero para recogidas regulares de negocios, a veces podemos ser flexibles dependiendo de su ubicación y la frecuencia de servicio necesaria.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">¿Pueden recoger durante horas no laborables para negocios?</h3>
+                            <p class="faq-answer">Sí, entendemos que negocios como restaurantes y bares pueden preferir recogidas temprano en la mañana o tarde en la noche. Podemos organizar recogidas durante horas no laborables para minimizar la interrupción a sus operaciones comerciales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">¿Aún Tiene Preguntas?</h2>
+                <p class="cta-description">Nuestro equipo está listo para ayudar. Llámenos para más información o para programar su primera recogida.</p>
+                <a href="tel:3477498146" class="cta-button">LLAME AHORA: 347-749-8146</a>
+            </div>
         </div>
         
-        <!-- FAQ Container -->
-        <div class="faq-container">
-            <!-- General Questions -->
-            <div id="general" class="faq-category-content">
-                <h2 class="category-title">General Questions</h2>
+        <!-- Chinese Content -->
+        <div id="zh-content" class="lang-content">
+            <!-- FAQ Header -->
+            <div class="faq-header">
+                <h1 class="title">常见问题</h1>
+                <p class="tagline">关于我们纽约市瓶子回收服务的所有信息</p>
+            </div>
+            
+            <!-- FAQ Categories -->
+            <div class="faq-categories">
+                <div class="faq-category active" onclick="showCategory('zh-general')">一般问题</div>
+                <div class="faq-category" onclick="showCategory('zh-eligible')">合格容器</div>
+                <div class="faq-category" onclick="showCategory('zh-payment')">支付和价格</div>
+                <div class="faq-category" onclick="showCategory('zh-pickup')">收集流程</div>
+                <div class="faq-category" onclick="showCategory('zh-business')">商业服务</div>
+            </div>
+            
+            <!-- FAQ Container -->
+            <div class="faq-container">
+                <!-- General Questions -->
+                <div id="zh-general" class="faq-category-content">
+                    <h2 class="category-title">一般问题</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">您在纽约市服务哪些区域？</h3>
+                            <p class="faq-answer">我们服务纽约市的五个区：曼哈顿，布鲁克林，皇后区，布朗克斯和斯塔滕岛。我们的瓶子回收服务覆盖整个城市。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">是否有最低收集量要求？</h3>
+                            <p class="faq-answer">是的，我们的收集服务要求最少1000个容器。这有助于我们维持高效路线并为纽约市所有客户提供最佳服务。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">如何安排收集？</h3>
+                            <p class="faq-answer">只需拨打<a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a>安排收集。我们会询问您的地址、首选收集时间以及大约有多少容器。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">您的运营时间和日期是什么？</h3>
+                            <p class="faq-answer">我们在纽约市全城每周运营六天。我们的典型收集时间是从上午8:00到晚上8:00，但我们有时可以通过特殊安排提供更早或更晚的收集服务。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">应该提前多久安排收集？</h3>
+                            <p class="faq-answer">我们建议至少提前24-48小时安排，特别是周末收集通常预约很快就满了。对于紧急的当天收集，请尽早致电，我们将尽力满足您的请求。</p>
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="faq-section">
-                    <div class="faq-item">
-                        <h3 class="faq-question">What areas do you serve in NYC?</h3>
-                        <p class="faq-answer">We serve all five boroughs of New York City: Manhattan, Brooklyn, Queens, Bronx, and Staten Island. Our bottle pickup service is available throughout the entire city.</p>
-                    </div>
+                <!-- Eligible Containers -->
+                <div id="zh-eligible" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">合格容器</h2>
                     
-                    <div class="faq-item">
-                        <h3 class="faq-question">Is there a minimum for pickup?</h3>
-                        <p class="faq-answer">Yes, we require a minimum of 1000 containers for our pickup service. This helps us maintain efficient routes and provide the best service to all our customers throughout NYC.</p>
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">您接受哪些类型的瓶子和罐子？</h3>
+                            <p class="faq-answer">我们接受所有印有"NY 5¢"的纽约州押金容器。这包括啤酒瓶和罐、汽水容器、水瓶、运动饮料瓶以及纽约州瓶法覆盖的其他饮料容器。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">您接受酒瓶或烈酒瓶吗？</h3>
+                            <p class="faq-answer">不，酒瓶和烈酒瓶在纽约州不符合5¢押金要求，所以我们不接受它们作为我们收集服务的一部分。寻找"NY 5¢"标记来识别合格容器。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">您接受其他州的容器吗？</h3>
+                            <p class="faq-answer">不，我们只能接受带有"NY 5¢"标记的容器，因为这些是纽约州唯一可赎回的容器。其他州（如康涅狄格州或马萨诸塞州）的容器不符合条件。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">您可以接受果汁容器或牛奶瓶吗？</h3>
+                            <p class="faq-answer">大多数果汁容器和牛奶瓶在纽约州不符合押金要求。唯一的例外是特别有"NY 5¢"标记的某些果汁容器。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">容器需要完好无损吗？</h3>
+                            <p class="faq-answer">是的，容器应该合理完好，条形码和"NY 5¢"标记可见。严重压扁或损坏的容器可能不被接受，因为它们无法正常处理。</p>
+                        </div>
                     </div>
+                </div>
+                
+                <!-- Payment & Pricing -->
+                <div id="zh-payment" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">支付和价格</h2>
                     
-                    <div class="faq-item">
-                        <h3 class="faq-question">How do I schedule a pickup?</h3>
-                        <p class="faq-answer">Simply call us at <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> to schedule a pickup. We'll ask for your address, preferred pickup time, and an estimate of how many containers you have.</p>
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">每个容器支付多少钱？</h3>
+                            <p class="faq-answer">我们为每个合格容器支付全额5¢押金价值。没有隐藏费用或扣除 - 您获得所有瓶子和罐子的全额赎回价值。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">如何付款？</h3>
+                            <p class="faq-answer">在容器计数后，在收集时以现金支付。我们的司机将提供一张显示容器总数和支付金额的收据。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">是否有服务费？</h3>
+                            <p class="faq-answer">不，没有服务费。您收到每个容器完整的5¢。我们的商业模式之所以有效，是因为我们高效处理大量容器。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">您提供任何数量奖励吗？</h3>
+                            <p class="faq-answer">对于非常大的数量（5,000个以上容器）或定期业务收集，我们可能能够提供额外激励。请致电讨论您的具体情况。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">您如何计数容器？</h3>
+                            <p class="faq-answer">客户需要计数并标记他们的容器。我们的司机在收集时验证计数，以确保对客户和我们公司都公平。我们建议在每个透明袋上清楚标明数量。</p>
+                        </div>
                     </div>
+                </div>
+                
+                <!-- Pickup Process -->
+                <div id="zh-pickup" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">收集流程</h2>
                     
-                    <div class="faq-item">
-                        <h3 class="faq-question">What days and hours do you operate?</h3>
-                        <p class="faq-answer">We operate six days a week throughout NYC. Our typical pickup hours are from 8:00 AM to 8:00 PM, but we can sometimes accommodate earlier or later pickups by special arrangement.</p>
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">如何准备我的瓶子和罐子？</h3>
+                            <p class="faq-answer">将塑料瓶与塑料分类，罐子与罐子分类。对于玻璃，每袋不超过50件。使用透明袋并清楚地在每个袋子上写上件数。这有助于加快收集过程。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">容器需要清洁吗？</h3>
+                            <p class="faq-answer">容器应该合理清洁和空置，但不需要彻底清洗。快速冲洗去除大部分残留物就足够了。过度肮脏或有异味的容器可能会被拒绝。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">收集时应该把容器放在哪里？</h3>
+                            <p class="faq-answer">对于房屋，请在预定收集时间将容器放在入口附近的外面。对于公寓，我们的司机到达时会给您打电话，您可以将容器带下来或指引他们到您的位置。对于企业，我们可以进入内部收集容器。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">如果我在收集时间不在家怎么办？</h3>
+                            <p class="faq-answer">我们希望在收集期间有人在场，以验证计数并接收付款。如果不可能，我们可以做特殊安排 - 请在安排收集时讨论这个问题。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">收集过程需要多长时间？</h3>
+                            <p class="faq-answer">收集过程通常需要10-30分钟，取决于容器数量和组织方式。分类良好且清楚标记的容器会大大加快流程。</p>
+                        </div>
                     </div>
+                </div>
+                
+                <!-- Business Services -->
+                <div id="zh-business" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">商业服务</h2>
                     
-                    <div class="faq-item">
-                        <h3 class="faq-question">How far in advance should I schedule a pickup?</h3>
-                        <p class="faq-answer">We recommend scheduling at least 24-48 hours in advance, especially for weekend pickups which tend to book up quickly. For urgent same-day pickups, call us as early as possible, and we'll do our best to accommodate your request.</p>
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">您为企业提供特殊服务吗？</h3>
+                            <p class="faq-answer">是的，我们为纽约市各地的餐厅、酒吧、咖啡馆、办公室和其他企业提供专业收集服务。我们可以安排每周或每两周定期收集。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">您能为我们的企业提供收集箱吗？</h3>
+                            <p class="faq-answer">对于有定期收集安排的企业，我们可以提供收集箱帮助您组织瓶子和罐子收集。设置企业账户时请询问此服务。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">您为企业收集提供任何文档吗？</h3>
+                            <p class="faq-answer">是的，我们为所有企业收集提供详细收据。对于需要额外文档用于会计或可持续发展报告的企业，我们可以提供月度报表。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">企业收集有最低数量要求吗？</h3>
+                            <p class="faq-answer">最低要求仍然是1000个容器，但对于定期企业收集，根据您的位置和所需服务频率，我们有时可以灵活处理。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">您能在企业非工作时间收集吗？</h3>
+                            <p class="faq-answer">是的，我们理解像餐厅和酒吧这样的企业可能更喜欢清晨或深夜收集。我们可以安排非工作时间收集，以减少对您业务运营的干扰。</p>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Eligible Containers -->
-            <div id="eligible" class="faq-category-content" style="display: none;">
-                <h2 class="category-title">Eligible Containers</h2>
-                
-                <div class="faq-section">
-                    <div class="faq-item">
-                        <h3 class="faq-question">What types of bottles and cans do you accept?</h3>
-                        <p class="faq-answer">We accept all New York State deposit containers with "NY 5¢" printed on them. This includes beer bottles and cans, soda containers, water bottles, sports drink bottles, and other beverage containers covered by the NY State Bottle Bill.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Do you accept wine or liquor bottles?</h3>
-                        <p class="faq-answer">No, wine and liquor bottles are not eligible for the 5¢ deposit in New York State, so we do not accept them as part of our pickup service. Look for the "NY 5¢" marking to identify eligible containers.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Do you accept containers from other states?</h3>
-                        <p class="faq-answer">No, we can only accept containers with the "NY 5¢" marking, as these are the only ones redeemable in New York State. Containers from other states (like Connecticut or Massachusetts) are not eligible.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Can you take juice containers or milk bottles?</h3>
-                        <p class="faq-answer">Most juice containers and milk bottles are not eligible for deposit in New York State. The only exceptions would be certain juice containers that specifically have the "NY 5¢" marking.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Do containers need to be intact?</h3>
-                        <p class="faq-answer">Yes, containers should be reasonably intact with the barcode and "NY 5¢" marking visible. Severely crushed or damaged containers may not be accepted as they cannot be properly processed.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Payment & Pricing -->
-            <div id="payment" class="faq-category-content" style="display: none;">
-                <h2 class="category-title">Payment & Pricing</h2>
-                
-                <div class="faq-section">
-                    <div class="faq-item">
-                        <h3 class="faq-question">How much do you pay per container?</h3>
-                        <p class="faq-answer">We pay the full 5¢ deposit value for each eligible container. There are no hidden fees or deductions - you get the full redemption value for all your bottles and cans.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">How is payment made?</h3>
-                        <p class="faq-answer">Payment is made in cash at the time of pickup, after your containers have been counted. Our driver will provide you with a receipt showing the total number of containers and the amount paid.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Is there a service fee?</h3>
-                        <p class="faq-answer">No, there is no service fee. You receive the full 5¢ per container. Our business model works because we process large volumes of containers efficiently.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Do you offer any volume bonuses?</h3>
-                        <p class="faq-answer">For very large quantities (5,000+ containers) or regular business pickups, we may be able to offer additional incentives. Please call us to discuss your specific situation.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">How do you count the containers?</h3>
-                        <p class="faq-answer">Customers need to count and mark their containers. Our drivers verify the count at pickup to ensure it's fair for both the customer and our company. We recommend clearly marking the quantity on each transparent bag..</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Pickup Process -->
-            <div id="pickup" class="faq-category-content" style="display: none;">
-                <h2 class="category-title">Pickup Process</h2>
-                
-                <div class="faq-section">
-                    <div class="faq-item">
-                        <h3 class="faq-question">How do I prepare my bottles and cans?</h3>
-                        <p class="faq-answer">Sort plastic bottles with plastic and cans with cans. For glass, no more than 50 pieces per bag. Use transparent bags and write the number of pieces on each bag clearly. This helps speed up the pickup process.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Do containers need to be clean?</h3>
-                        <p class="faq-answer">Containers should be reasonably clean and empty, but they don't need to be thoroughly washed. A quick rinse to remove most residue is sufficient. Excessively dirty or smelly containers may be rejected.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Where should I place my containers for pickup?</h3>
-                        <p class="faq-answer">For houses, please place containers outside near your entrance at the scheduled pickup time. For
-                          <div class="faq-item">
-                        <h3 class="faq-question">Where should I place my containers for pickup?</h3>
-                        <p class="faq-answer">For houses, please place containers outside near your entrance at the scheduled pickup time. For apartments, our driver will call you when they arrive, and you can bring the containers down or direct them to your location. For businesses, we can come inside to collect the containers.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">What if I'm not home during the pickup time?</h3>
-                        <p class="faq-answer">We prefer that someone is present during pickup to verify the count and receive payment. If that's not possible, we can make special arrangements - please discuss this when scheduling your pickup.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">How long does the pickup process take?</h3>
-                        <p class="faq-answer">The pickup process typically takes between 10-30 minutes, depending on the quantity of containers and how they're organized. Well-sorted containers in clearly marked bags speed up the process considerably.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Business Services -->
-            <div id="business" class="faq-category-content" style="display: none;">
-                <h2 class="category-title">Business Services</h2>
-                
-                <div class="faq-section">
-                    <div class="faq-item">
-                        <h3 class="faq-question">Do you offer special services for businesses?</h3>
-                        <p class="faq-answer">Yes, we offer specialized pickup services for restaurants, bars, cafes, offices, and other businesses throughout NYC. We can arrange regular scheduled pickups on a weekly or bi-weekly basis.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Can you provide collection bins for our business?</h3>
-                        <p class="faq-answer">For businesses with regular pickup schedules, we can provide collection bins to help you organize your bottle and can collection. Please ask about this service when setting up your business account.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Do you offer any documentation for business pickups?</h3>
-                        <p class="faq-answer">Yes, we provide detailed receipts for all business pickups. For businesses requiring additional documentation for accounting or sustainability reporting, we can provide monthly statements.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Is there a minimum quantity for business pickups?</h3>
-                        <p class="faq-answer">The minimum is still 1000 containers, but for regular business pickups, we can sometimes be flexible depending on your location and the frequency of service needed.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3 class="faq-question">Can you pick up during off-hours for businesses?</h3>
-                        <p class="faq-answer">Yes, we understand that businesses like restaurants and bars may prefer early morning or late night pickups. We can arrange pickups during off-hours to minimize disruption to your business operations.</p>
-                    </div>
-                </div>
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">还有问题？</h2>
+                <p class="cta-description">我们的团队随时准备帮助。请致电获取更多信息或安排您的首次收集。</p>
+                <a href="tel:3477498146" class="cta-button">立即致电：347-749-8146</a>
             </div>
         </div>
         
-        <!-- Call to Action -->
-        <div class="cta-section">
-            <h2 class="cta-title">Still Have Questions?</h2>
-            <p class="cta-description">Our team is ready to help. Call us for more information or to schedule your first pickup.</p>
-            <a href="tel:3477498146" class="cta-button">CALL NOW: 347-749-8146</a>
+        <!-- Russian Content -->
+        <div id="ru-content" class="lang-content">
+            <!-- FAQ Header -->
+            <div class="faq-header">
+                <h1 class="title">Часто Задаваемые Вопросы</h1>
+                <p class="tagline">Всё, что вам нужно знать о нашем сервисе сбора бутылок в Нью-Йорке</p>
+            </div>
+            
+            <!-- FAQ Categories -->
+            <div class="faq-categories">
+                <div class="faq-category active" onclick="showCategory('ru-general')">Общие Вопросы</div>
+                <div class="faq-category" onclick="showCategory('ru-eligible')">Подходящие Контейнеры</div>
+                <div class="faq-category" onclick="showCategory('ru-payment')">Оплата и Цены</div>
+                <div class="faq-category" onclick="showCategory('ru-pickup')">Процесс Сбора</div>
+                <div class="faq-category" onclick="showCategory('ru-business')">Услуги для Бизнеса</div>
+            </div>
+            
+            <!-- FAQ Container -->
+            <div class="faq-container">
+                <!-- General Questions -->
+                <div id="ru-general" class="faq-category-content">
+                    <h2 class="category-title">Общие Вопросы</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Какие районы вы обслуживаете в Нью-Йорке?</h3>
+                            <p class="faq-answer">Мы обслуживаем все пять районов Нью-Йорка: Манхэттен, Бруклин, Квинс, Бронкс и Статен-Айленд. Наш сервис сбора бутылок доступен по всему городу.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Есть ли минимальное количество для сбора?</h3>
+                            <p class="faq-answer">Да, для нашего сервиса сбора требуется минимум 1000 контейнеров. Это помогает нам поддерживать эффективные маршруты и предоставлять лучший сервис всем нашим клиентам по всему Нью-Йорку.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Как запланировать сбор?</h3>
+                            <p class="faq-answer">Просто позвоните нам по телефону <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> чтобы запланировать сбор. Мы спросим ваш адрес, предпочтительное время сбора и оценку того, сколько у вас контейнеров.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">В какие дни и часы вы работаете?</h3>
+                            <p class="faq-answer">Мы работаем шесть дней в неделю по всему Нью-Йорку. Наши типичные часы сбора с 8:00 утра до 8:00 вечера, но мы иногда можем организовать более ранние или поздние сборы по специальной договоренности.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Насколько заранее следует планировать сбор?</h3>
+                            <p class="faq-answer">Мы рекомендуем планировать как минимум за 24-48 часов, особенно для сборов в выходные, которые имеют тенденцию быстро бронироваться. Для срочных сборов в тот же день, позвоните нам как можно раньше, и мы сделаем все возможное, чтобы удовлетворить ваш запрос.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Russian sections would follow same structure -->
+                <div id="ru-eligible" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Подходящие Контейнеры</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Какие типы бутылок и банок вы принимаете?</h3>
+                            <p class="faq-answer">Мы принимаем все контейнеры с депозитом штата Нью-Йорк с напечатанной отметкой "NY 5¢". Это включает пивные бутылки и банки, контейнеры для газировки, бутылки для воды, бутылки для спортивных напитков и другие контейнеры для напитков, покрываемые Законом о бутылках штата Нью-Йорк.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Принимаете ли вы винные или ликерные бутылки?</h3>
+                            <p class="faq-answer">Нет, винные и ликерные бутылки не подходят для депозита в 5¢ в штате Нью-Йорк, поэтому мы не принимаем их в рамках нашего сервиса сбора. Ищите отметку "NY 5¢" для определения подходящих контейнеров.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Принимаете ли вы контейнеры из других штатов?</h3>
+                            <p class="faq-answer">Нет, мы можем принимать только контейнеры с отметкой "NY 5¢", так как это единственные контейнеры, подлежащие обмену в штате Нью-Йорк. Контейнеры из других штатов (например, Коннектикут или Массачусетс) не подходят.</p>
+                        </div>
+
+                        <div id="ru-payment" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Оплата и Цены</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Сколько вы платите за контейнер?</h3>
+                            <p class="faq-answer">Мы выплачиваем полную стоимость депозита в 5¢ за каждый подходящий контейнер. Нет скрытых комиссий или вычетов - вы получаете полную стоимость выкупа за все ваши бутылки и банки.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Как осуществляется оплата?</h3>
+                            <p class="faq-answer">Оплата производится наличными во время сбора, после подсчета ваших контейнеров. Наш водитель предоставит вам квитанцию с указанием общего количества контейнеров и выплаченной суммы.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Есть ли плата за обслуживание?</h3>
+                            <p class="faq-answer">Нет, платы за обслуживание нет. Вы получаете полные 5¢ за контейнер. Наша бизнес-модель работает, потому что мы эффективно обрабатываем большие объемы контейнеров.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Предлагаете ли вы бонусы за объем?</h3>
+                            <p class="faq-answer">Для очень больших количеств (более 5,000 контейнеров) или регулярных бизнес-сборов мы можем предложить дополнительные стимулы. Пожалуйста, позвоните нам, чтобы обсудить вашу конкретную ситуацию.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Как вы считаете контейнеры?</h3>
+                            <p class="faq-answer">Клиенты должны сами считать и маркировать свои контейнеры. Наши водители проверяют количество при сборе для обеспечения справедливости как для клиента, так и для нашей компании. Мы рекомендуем четко маркировать количество на каждом прозрачном пакете.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="ru-pickup" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Процесс Сбора</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Как подготовить мои бутылки и банки?</h3>
+                            <p class="faq-answer">Сортируйте пластиковые бутылки с пластиком, банки с банками. Для стекла - не более 50 штук в пакете. Используйте прозрачные пакеты и четко указывайте количество штук на каждом пакете. Это помогает ускорить процесс сбора.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Должны ли контейнеры быть чистыми?</h3>
+                            <p class="faq-answer">Контейнеры должны быть относительно чистыми и пустыми, но их не нужно тщательно мыть. Быстрое ополаскивание для удаления большей части остатков достаточно. Чрезмерно грязные или дурно пахнущие контейнеры могут быть отклонены.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Где я должен разместить мои контейнеры для сбора?</h3>
+                            <p class="faq-answer">Для домов, пожалуйста, разместите контейнеры снаружи рядом с вашим входом в запланированное время сбора. Для квартир, наш водитель позвонит вам, когда прибудет, и вы сможете спустить контейнеры или направить их к вашему местоположению. Для бизнеса мы можем войти внутрь для сбора контейнеров.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Что, если меня нет дома во время сбора?</h3>
+                            <p class="faq-answer">Мы предпочитаем, чтобы кто-то присутствовал во время сбора для подтверждения количества и получения оплаты. Если это невозможно, мы можем сделать специальные договоренности - пожалуйста, обсудите это при планировании вашего сбора.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Сколько времени занимает процесс сбора?</h3>
+                            <p class="faq-answer">Процесс сбора обычно занимает от 10 до 30 минут, в зависимости от количества контейнеров и их организации. Хорошо отсортированные контейнеры в четко маркированных пакетах значительно ускоряют процесс.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="ru-business" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Услуги для Бизнеса</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Предлагаете ли вы специальные услуги для бизнеса?</h3>
+                            <p class="faq-answer">Да, мы предлагаем специализированные услуги сбора для ресторанов, баров, кафе, офисов и других предприятий по всему Нью-Йорку. Мы можем организовать регулярные запланированные сборы на еженедельной или двухнедельной основе.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Можете ли вы предоставить контейнеры для сбора для нашего бизнеса?</h3>
+                            <p class="faq-answer">Для бизнеса с регулярными графиками сбора мы можем предоставить контейнеры для сбора, чтобы помочь вам организовать коллекцию бутылок и банок. Пожалуйста, спросите об этой услуге при настройке вашего бизнес-аккаунта.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Предлагаете ли вы какую-либо документацию для бизнес-сборов?</h3>
+                            <p class="faq-answer">Да, мы предоставляем подробные квитанции для всех бизнес-сборов. Для бизнеса, требующего дополнительной документации для бухгалтерского учета или отчетности по устойчивому развитию, мы можем предоставить ежемесячные выписки.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Есть ли минимальное количество для бизнес-сборов?</h3>
+                            <p class="faq-answer">Минимум все еще составляет 1000 контейнеров, но для регулярных бизнес-сборов мы иногда можем быть гибкими в зависимости от вашего местоположения и частоты необходимого обслуживания.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Можете ли вы собирать в нерабочее время для бизнеса?</h3>
+                            <p class="faq-answer">Да, мы понимаем, что бизнес, такой как рестораны и бары, может предпочитать ранний утренний или поздний вечерний сбор. Мы можем организовать сборы в нерабочее время, чтобы минимизировать нарушение ваших бизнес-операций.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">Остались Вопросы?</h2>
+                <p class="cta-description">Наша команда готова помочь. Позвоните нам для получения дополнительной информации или чтобы запланировать ваш первый сбор.</p>
+                <a href="tel:3477498146" class="cta-button">ЗВОНИТЕ СЕЙЧАС: 347-749-8146</a>
+            </div>
+        </div>
+        
+        <!-- Haitian Creole Content -->
+        <div id="ht-content" class="lang-content">
+            <!-- FAQ Header -->
+            <div class="faq-header">
+                <h1 class="title">Kesyon Moun Poze Souvan</h1>
+                <p class="tagline">Tout Sa Ou Bezwen Konnen Sou Sèvis Ranmasaj Boutèy Nou nan NYC</p>
+            </div>
+            
+            <!-- FAQ Categories -->
+            <div class="faq-categories">
+                <div class="faq-category active" onclick="showCategory('ht-general')">Kesyon Jeneral</div>
+                <div class="faq-category" onclick="showCategory('ht-eligible')">Veso Ki Kalifye</div>
+                <div class="faq-category" onclick="showCategory('ht-payment')">Peman ak Pri</div>
+                <div class="faq-category" onclick="showCategory('ht-pickup')">Pwosesis Ranmasaj</div>
+                <div class="faq-category" onclick="showCategory('ht-business')">Sèvis Biznis</div>
+            </div>
+            
+            <!-- FAQ Container -->
+            <div class="faq-container">
+                <!-- General Questions -->
+                <div id="ht-general" class="faq-category-content">
+                    <h2 class="category-title">Kesyon Jeneral</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Ki zòn nou sèvi nan NYC?</h3>
+                            <p class="faq-answer">Nou sèvi tout senk minisipalite nan New York City: Manhattan, Brooklyn, Queens, Bronx, ak Staten Island. Sèvis ranmasaj boutèy nou an disponib nan tout vil la.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske gen yon minimòm pou ranmasaj?</h3>
+                            <p class="faq-answer">Wi, nou mande yon minimòm de 1000 veso pou sèvis ranmasaj nou an. Sa ede nou kenbe wout efikas epi bay pi bon sèvis pou tout kliyan nou yo nan NYC.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Kijan mwen ka planifye yon ranmasaj?</h3>
+                            <p class="faq-answer">Jis rele nou nan <a href="tel:3477498146" style="color: #FF5722; font-weight: bold;">347-749-8146</a> pou planifye yon ranmasaj. Nou pral mande adrès ou, lè ranmasaj prefere, ak yon estimasyon de konbyen veso ou genyen.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Ki jou ak lè nou opere?</h3>
+                            <p class="faq-answer">Nou opere sis jou pa semèn nan tout NYC. Lè ranmasaj tipik nou yo se 8:00 AM jiska 8:00 PM, men nou ka pafwa akomode ranmasaj pi bonè oswa pi ta pa aranjman espesyal.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Konbyen tan davans mwen ta dwe planifye yon ranmasaj?</h3>
+                            <p class="faq-answer">Nou rekòmande planifye omwen 24-48 èdtan davans, espesyalman pou ranmasaj nan wikenn ki gen tandans ranpli vit. Pou ranmasaj ijans menm jou, rele nou pi bonè ke posib, epi nou pral fè tout sa nou kapab pou akomode demann ou.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Eligible Containers -->
+                <div id="ht-eligible" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Veso Ki Kalifye</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Ki kalite boutèy ak bwat nou aksepte?</h3>
+                            <p class="faq-answer">Nou aksepte tout veso depo Eta New York avèk "NY 5¢" enprime sou yo. Sa enkli boutèy byè ak bwat, veso soda, boutèy dlo, boutèy bwason espò, ak lòt veso bwason ki kouvri pa Lwa Boutèy Eta NY.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske nou aksepte boutèy diven oswa likè?</h3>
+                            <p class="faq-answer">Non, boutèy diven ak likè pa kalifye pou depo 5¢ nan Eta New York, kidonk nou pa aksepte yo kòm pati sèvis ranmasaj nou an. Chèche mak "NY 5¢" pou idantifye veso ki kalifye.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske nou aksepte veso ki soti nan lòt eta?</h3>
+                            <p class="faq-answer">Non, nou ka aksepte sèlman veso ki gen mak "NY 5¢", paske sa yo se sèl ki ka rachte nan Eta New York. Veso ki soti nan lòt eta (tankou Connecticut oswa Massachusetts) pa kalifye.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske nou ka pran veso ji oswa boutèy lèt?</h3>
+                            <p class="faq-answer">Pifò veso ji ak boutèy lèt pa kalifye pou depo nan Eta New York. Sèl eksepsyon yo t ap sèten veso ji ki gen spesifikman mak "NY 5¢".</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske veso yo bezwen antye?</h3>
+                            <p class="faq-answer">Wi, veso yo ta dwe rezonabman antye avèk kòd-baryè ak mak "NY 5¢" vizib. Veso ki kraze anpil oswa domaje ka pa aksepte paske yo pa ka trete kòrèkteman.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="ht-payment" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Peman ak Pri</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Konbyen nou peye pa veso?</h3>
+                            <p class="faq-answer">Nou peye valè konplè depo 5¢ pou chak veso ki kalifye. Pa gen frè kache oswa dediksyon - ou resevwa valè ranbouman konplè pou tout boutèy ak bwat ou yo.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Kijan peman an fèt?</h3>
+                            <p class="faq-answer">Peman an fèt nan lajan kach nan moman ranmasaj la, apre veso ou yo fin konte. Chofè nou an ap ba ou yon resi ki montre kantite total veso ak montan ki peye a.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske gen yon frè sèvis?</h3>
+                            <p class="faq-answer">Non, pa gen frè sèvis. Ou resevwa 5¢ konplè pa veso. Modèl biznis nou an fonksyone paske nou trete gwo volim veso efikasman.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske nou ofri bonis volim?</h3>
+                            <p class="faq-answer">Pou trè gwo kantite (5,000+ veso) oswa ranmasaj biznis regilye, nou ka ofri ankourajman adisyonèl. Tanpri rele nou pou diskite sitiyasyon spesifik ou.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Kijan nou konte veso yo?</h3>
+                            <p class="faq-answer">Kliyan yo bezwen konte epi make veso yo. Chofè nou yo verifye kont lan nan ranmasaj pou asire li jis pou tou de kliyan an ak konpayi nou an. Nou rekòmande make kantite a klèman sou chak sak transparan.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="ht-pickup" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Pwosesis Ranmasaj</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Kijan mwen prepare boutèy ak bwat mwen yo?</h3>
+                            <p class="faq-answer">Triye boutèy plastik ak plastik, bwat ak bwat. Pou vè, pa plis pase 50 moso pa sak. Itilize sak transparan epi ekri kantite moso yo klèman sou chak sak. Sa ede akselere pwosesis ranmasaj la.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske veso yo bezwen pwòp?</h3>
+                            <p class="faq-answer">Veso yo ta dwe rezonabman pwòp epi vid, men yo pa bezwen lave konplètman. Yon rinse rapid pou retire pifò rezidi ase. Veso ki twò sal oswa ki gen move odè ka rejte.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Ki kote mwen ta dwe mete veso mwen yo pou ranmasaj?</h3>
+                            <p class="faq-answer">Pou kay, tanpri mete veso yo deyò tou pre antre ou nan lè ranmasaj ki pwograme a. Pou apatman, chofè nou an ap rele ou lè yo rive, epi ou ka pote veso yo desann oswa dirije yo nan kote ou ye. Pou biznis, nou ka antre andedan pou kolekte veso yo.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">E si mwen pa lakay mwen pandan lè ranmasaj la?</h3>
+                            <p class="faq-answer">Nou prefere ke yon moun prezante pandan ranmasaj la pou verifye kont lan epi resevwa peman an. Si sa pa posib, nou ka fè aranjman espesyal - tanpri diskite sa lè w ap planifye ranmasaj ou.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Konbyen tan pwosesis ranmasaj la pran?</h3>
+                            <p class="faq-answer">Pwosesis ranmasaj la tipikman pran ant 10-30 minit, selon kantite veso yo ak kijan yo òganize. Veso ki byen triye nan sak ki make klèman akselere pwosesis la konsiderabman.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="ht-business" class="faq-category-content" style="display: none;">
+                    <h2 class="category-title">Sèvis Biznis</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske nou ofri sèvis espesyal pou biznis?</h3>
+                            <p class="faq-answer">Wi, nou ofri sèvis ranmasaj espesyalize pou restoran, ba, kafe, biwo, ak lòt biznis nan tout NYC. Nou ka aranje ranmasaj regilye pwograme sou yon baz chak semèn oswa bi-mansyèl.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske nou ka bay bin koleksyon pou biznis nou an?</h3>
+                            <p class="faq-answer">Pou biznis ki gen orè ranmasaj regilye, nou ka bay bin koleksyon pou ede ou òganize koleksyon boutèy ak bwat ou. Tanpri mande sou sèvis sa a lè w ap mete kont biznis ou.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske nou ofri nenpòt dokimantasyon pou ranmasaj biznis?</h3>
+                            <p class="faq-answer">Wi, nou bay resi detaye pou tout ranmasaj biznis. Pou biznis ki mande dokimantasyon adisyonèl pou kontabilite oswa rapò dirabilite, nou ka bay eta mansyèl.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske gen yon kantite minimòm pou ranmasaj biznis?</h3>
+                            <p class="faq-answer">Minimòm nan toujou 1000 veso, men pou ranmasaj biznis regilye, nou ka pafwa fleksib selon lokasyon ou ak frekans sèvis ki nesesè.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="faq-question">Èske nou ka ranmase pandan lè ki pa travay pou biznis?</h3>
+                            <p class="faq-answer">Wi, nou konprann ke biznis tankou restoran ak ba ka prefere ranmasaj bonè nan maten oswa ta nan aswè. Nou ka aranje ranmasaj pandan lè ki pa travay pou minimize entèripsyon nan operasyon biznis ou.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">Toujou Gen Kesyon?</h2>
+                <p class="cta-description">Ekip nou an pare pou ede. Rele nou pou plis enfòmasyon oswa pou planifye premye ranmasaj ou.</p>
+                <a href="tel:3477498146" class="cta-button">RELE KOUNYE A: 347-749-8146</a>
+            </div>
         </div>
         
         <!-- Footer -->
@@ -299,24 +1081,61 @@
         </div>
     </div>
     
-    <!-- JavaScript for FAQ Categories -->
+    <!-- JavaScript for Language Switching -->
     <script>
+        function changeLanguage(lang) {
+            // Hide all language content
+            document.querySelectorAll('.lang-content').forEach(function(element) {
+                element.classList.remove('active');
+            });
+            
+            // Show the selected language content
+            document.getElementById(lang + '-content').classList.add('active');
+            
+            // Update active class on buttons
+            document.querySelectorAll('.language-button').forEach(function(button) {
+                button.classList.remove('active');
+            });
+            
+            // Add active class to the selected language button
+            document.querySelector('.language-button[onclick="changeLanguage(\'' + lang + '\')"]').classList.add('active');
+            
+            // Update HTML lang attribute
+            document.documentElement.setAttribute('lang', lang);
+            
+            // Save language preference to localStorage
+            localStorage.setItem('preferred_language', lang);
+        }
+        
+        // Check for saved language preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('preferred_language');
+            if (savedLanguage) {
+                changeLanguage(savedLanguage);
+            }
+        });
+        
+        // JavaScript for FAQ Categories
         function showCategory(categoryId) {
-            // Hide all category content
-            document.querySelectorAll('.faq-category-content').forEach(function(content) {
+            // Get the language from the category ID (e.g., 'en-general' => 'en')
+            const langPrefix = categoryId.split('-')[0];
+            
+            // Hide all category content for the current language
+            document.querySelectorAll(`[id^="${langPrefix}-"]`).forEach(function(content) {
                 content.style.display = 'none';
             });
             
             // Show selected category
             document.getElementById(categoryId).style.display = 'block';
             
-            // Update active class on category buttons
-            document.querySelectorAll('.faq-category').forEach(function(button) {
+            // Update active class on category buttons within the current language section
+            const languageContent = document.getElementById(`${langPrefix}-content`);
+            languageContent.querySelectorAll('.faq-category').forEach(function(button) {
                 button.classList.remove('active');
             });
             
-            // Find the clicked button by checking which ones have the onclick that includes the categoryId
-            document.querySelectorAll('.faq-category').forEach(function(button) {
+            // Find the clicked button
+            languageContent.querySelectorAll('.faq-category').forEach(function(button) {
                 if (button.getAttribute('onclick').includes(categoryId)) {
                     button.classList.add('active');
                 }
