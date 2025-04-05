@@ -4,13 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Cash For Bottles and Cans | NYC Bottle Pickup Service | All 5 Boroughs</title>
-
-    <div class="navigation">
-    <a href="index.html">Home</a>
-    <a href="How-It-Works.html">How It Works</a>
-    <a href="brooklyn.html">Brooklyn</a>
-    <a href="faq.html">FAQ</a>
-</div>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="NYC bottle and can pickup service. We pay cash for your recyclables and come to you! Serving Manhattan, Brooklyn, Queens, Bronx and Staten Island. Call 347-749-8146 to schedule a pickup.">
@@ -237,7 +230,29 @@
             text-decoration: none;
             font-weight: bold;
         }
-        
+
+        /* Navigation Menu */
+.navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.navigation a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
         /* Language Content Display */
         .lang-content {
             display: none;
@@ -407,7 +422,14 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container"> 
+        <!-- Navigation Menu -->
+<div class="navigation">
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="brooklyn.html">Brooklyn</a>
+    <a href="faq.html">FAQ</a>
+</div>
         <!-- Language Selector -->
         <div class="language-selector">
             <button class="language-button active" onclick="changeLanguage('en')">English</button>
