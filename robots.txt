@@ -1,3 +1,22 @@
 User-agent: *
 Allow: /
+Crawl-delay: 1
+
+# Priority pages for indexing
+Allow: /index.html
+Allow: /brooklyn.html
+Allow: /how-it-works.html
+Allow: /faq.html
+
+# Block admin/temp files if any exist
+Disallow: /admin/
+Disallow: /*.tmp$
+Disallow: /temp/
+
+# XML Sitemap
 Sitemap: https://cashforbottles.com/sitemap.xml
+
+# Contact info for search engines
+# NYC Bottle Pickup Service - Cash for Bottles and Cans
+# Phone: 347-749-8146
+# Service Area: All 5 NYC Boroughs

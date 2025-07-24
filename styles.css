@@ -1,335 +1,344 @@
-    <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #d2b275;
-            color: white;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        /* Language Selector */
-        .language-selector {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            z-index: 1000;
-        }
-        
-        .language-button {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 1px solid white;
-            border-radius: 4px;
-            padding: 8px 12px;
-            margin: 0 5px 5px 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-        
-        .language-button:hover {
-            background-color: white;
-            color: #d2b275;
-        }
-        
-        .language-button.active {
-            background-color: white;
-            color: #d2b275;
-            font-weight: bold;
-        }
-        
-        /* Truck Image */
-        .truck-image {
-            max-width: 70%; /* Reduced to 70% for desktop */
-            height: auto;
-            margin: 0 auto 30px auto; /* Center the image horizontally */
-            border: none;
-            background: transparent;
-            display: block; /* Makes centering with margin auto work */
-            object-fit: contain;
-            loading: lazy;
-        }
-        
-        /* Call Button */
-        .call-button {
-            display: inline-block;
-            width: 60%;
-            max-width: 600px;
-            background-color: #FF5722;
-            color: white;
-            font-size: 2.2rem;
-            font-weight: bold;
-            text-align: center;
-            padding: 1.5rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            margin: 10px auto 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            animation: pulse 2s infinite;
-        }
-        
-        .call-button:hover {
-            background-color: #E64A19;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-            50% {
-                transform: scale(1.03);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-        }
-        
-        /* Headings */
-        .title {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .tagline {
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* FAQ Section */
-        .faq-section {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 40px;
-            color: #333;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        
-        .faq-section h2 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-        }
-        
-        .faq-item {
-            margin-bottom: 25px;
-        }
-        
-        .faq-question {
-            color: #2E7D32;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .faq-answer {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-        
-        /* Footer */
-        .footer {
-            margin-top: 50px;
-            padding: 20px 0;
-            font-size: 1rem;
-        }
-        
-        .footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        /* Language Content Display */
-        .lang-content {
-            display: none;
-        }
-        
-        .lang-content.active {
-            display: block;
-        }
-        
-        /* Language-specific adjustments */
-        #ru-content .call-button {
-            font-size: 1.9rem;
-        }
-        
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-            
-            .language-selector {
-                margin: 0 0 20px 0;
-            }
-            
-            .language-button {
-                padding: 8px 12px;
-                margin: 0 3px 8px 3px;
-            }
-            
-            .title {
-                font-size: 2.5rem;
-                padding: 0 15px;
-            }
-            
-            .tagline {
-                font-size: 1.5rem;
-                padding: 0 15px;
-            }
-            
-            .call-button {
-                font-size: 1.8rem;
-                padding: 1.2rem 2rem;
-                width: 90%;
-            }
-            
-            #ru-content .call-button {
-                font-size: 1.6rem;
-            }
-            
-            .faq-section h2 {
-                font-size: 2rem;
-            }
-            
-            .faq-question {
-                font-size: 1.3rem;
-            }
-            
-            .faq-answer {
-                font-size: 1.1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px 5px;
-            }
-            
-            .language-selector {
-                flex-wrap: wrap;
-                justify-content: center;
-                margin-bottom: 15px;
-            }
-            
-            .language-button {
-                padding: 8px 10px;
-                font-size: 0.95rem;
-                margin: 0 3px 6px 3px;
-                min-width: 70px;
-            }
-            
-            .truck-image {
-                margin-bottom: 20px;
-                max-width: 98%; /* Override desktop size for mobile */
-            }
-            
-            .title {
-                font-size: 2rem;
-                padding: 0 5px;
-                margin-bottom: 10px;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
-                padding: 0 5px;
-                margin-bottom: 25px;
-            }
-            
-            .call-button {
-                width: 95%;
-                font-size: 1.4rem;
-                padding: 1rem 0.8rem;
-                white-space: nowrap;
-                margin: 5px auto 25px;
-                border-radius: 40px;
-            }
-            
-            #ru-content .call-button {
-                font-size: 1.3rem;
-            }
-            
-            .faq-section {
-                padding: 15px;
-                margin-top: 25px;
-            }
-            
-            .faq-section h2 {
-                font-size: 1.7rem;
-                margin-bottom: 20px;
-            }
-            
-            .faq-question {
-                font-size: 1.1rem;
-                margin-bottom: 8px;
-            }
-            
-            .faq-answer {
-                font-size: 0.95rem;
-                line-height: 1.5;
-            }
-            
-            .faq-item {
-                margin-bottom: 20px;
-            }
-            
-            .footer {
-                margin-top: 30px;
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* Additional Small Mobile Optimization */
-        @media (max-width: 375px) {
-            .language-button {
-                padding: 6px 8px;
-                font-size: 0.85rem;
-                margin: 0 2px 5px 2px;
-                min-width: 60px;
-            }
-            
-            .call-button {
-                font-size: 1.2rem;
-                padding: 0.9rem 0.6rem;
-            }
-            
-            #ru-content .call-button {
-                font-size: 1.1rem;
-            }
-            
-            .title {
-                font-size: 1.8rem;
-            }
-            
-            .tagline {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+/* Core Web Vitals Optimized CSS for Cash For Bottles NYC */
+
+/* Critical CSS - Above the fold styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    background-color: #d2b275;
+    color: white;
+    line-height: 1.6;
+    font-display: swap; /* Improve font loading */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Performance optimized call button */
+.call-button {
+    display: inline-block;
+    width: 60%;
+    max-width: 600px;
+    background-color: #FF5722;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1.5rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    margin: 10px auto 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    will-change: transform; /* Optimize for animations */
+    contain: layout style paint; /* Performance boost */
+}
+
+.call-button:hover {
+    background-color: #E64A19;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px) translateZ(0); /* Force hardware acceleration */
+}
+
+/* Optimized image loading */
+.truck-image {
+    max-width: 70%;
+    height: auto;
+    margin: 0 auto 30px auto;
+    border: none;
+    background: transparent;
+    display: block;
+    object-fit: contain;
+    loading: lazy;
+    will-change: auto; /* Only animate when needed */
+    contain: layout style; /* Performance optimization */
+}
+
+/* Language selector optimizations */
+.language-selector {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    z-index: 1000;
+    contain: layout style; /* Performance boost */
+}
+
+.language-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 0 5px 5px 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    will-change: background-color, color;
+}
+
+.language-button:hover {
+    background-color: white;
+    color: #d2b275;
+}
+
+.language-button.active {
+    background-color: white;
+    color: #d2b275;
+    font-weight: bold;
+}
+
+/* Navigation Menu */
+.navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    contain: layout style;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.navigation a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Typography optimizations */
+.title {
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive font sizing */
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    contain: layout style;
+}
+
+.tagline {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    contain: layout style;
+}
+
+/* FAQ Section optimizations */
+.faq-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 40px;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    contain: layout style paint;
+}
+
+.faq-section h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+
+.faq-item {
+    margin-bottom: 25px;
+    contain: layout style;
+}
+
+.faq-question {
+    color: #2E7D32;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.faq-answer {
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    font-size: 1rem;
+    contain: layout style;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Language Content Display */
+.lang-content {
+    display: none;
+}
+
+.lang-content.active {
+    display: block;
+}
+
+/* Language-specific adjustments */
+#ru-content .call-button {
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+}
+
+/* Pulse animation - optimized for performance */
+@keyframes pulse {
+    0% {
+        transform: scale(1) translateZ(0);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.03) translateZ(0);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1) translateZ(0);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Apply pulse animation with performance optimization */
+.call-button {
+    animation: pulse 2s infinite;
+    animation-fill-mode: both;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .call-button {
+        animation: none;
+    }
+    
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Mobile optimizations with container queries where possible */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .call-button {
+        width: 90%;
+        font-size: clamp(1.4rem, 4vw, 1.8rem);
+        padding: 1.2rem 2rem;
+    }
+    
+    .language-selector {
+        margin: 0 0 20px 0;
+    }
+    
+    .language-button {
+        padding: 8px 12px;
+        margin: 0 3px 8px 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px 5px;
+    }
+    
+    .language-selector {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .language-button {
+        padding: 8px 10px;
+        font-size: 0.95rem;
+        margin: 0 3px 6px 3px;
+        min-width: 70px;
+    }
+    
+    .truck-image {
+        margin-bottom: 20px;
+        max-width: 98%;
+    }
+    
+    .call-button {
+        width: 95%;
+        padding: 1rem 0.8rem;
+        margin: 5px auto 25px;
+        border-radius: 40px;
+    }
+    
+    .faq-section {
+        padding: 15px;
+        margin-top: 25px;
+    }
+    
+    .faq-item {
+        margin-bottom: 20px;
+    }
+    
+    .footer {
+        margin-top: 30px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Additional performance optimizations */
+@media (max-width: 375px) {
+    .language-button {
+        padding: 6px 8px;
+        font-size: 0.85rem;
+        margin: 0 2px 5px 2px;
+        min-width: 60px;
+    }
+    
+    .call-button {
+        padding: 0.9rem 0.6rem;
+    }
+}
+
+/* Performance hints for browsers */
+.call-button,
+.language-button,
+.navigation a {
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Optimize text rendering */
+body {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improve loading performance */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Critical resource hints */
+@font-face {
+    font-family: 'system-ui';
+    font-display: swap;
+}
