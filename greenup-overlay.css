@@ -217,37 +217,39 @@ body {
 /* Mobile */
 @media (max-width: 767px) {
     .greenup-hero {
-        padding: 20px 15px;
+        padding: 15px 15px;
         justify-content: center;
+        min-height: 100vh;
+        overflow-y: auto;
     }
     
     .greenup-logo {
-        max-width: 280px;
-        width: 85%;
-        margin-bottom: 25px;
+        max-width: 240px;
+        width: 80%;
+        margin-bottom: 20px;
     }
     
     .greenup-text {
-        font-size: 1.6rem;
-        margin-bottom: 8px;
+        font-size: 1.4rem;
+        margin-bottom: 6px;
     }
     
     .greenup-subtext {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
+        font-size: 1.1rem;
+        margin-bottom: 25px;
     }
     
     .greenup-buttons {
         display: flex;
         flex-direction: column;
-        gap: 12px;
-        max-width: 320px;
-        width: 100%;
+        gap: 10px;
+        max-width: 300px;
+        width: 95%;
     }
     
     .greenup-btn {
-        padding: 16px 30px;
-        font-size: 1rem;
+        padding: 14px 20px;
+        font-size: 0.95rem;
         width: 100%;
     }
 }
@@ -255,39 +257,8 @@ body {
 /* Very small mobile devices */
 @media (max-width: 375px) {
     .greenup-hero {
-        padding: 15px 10px;
-    }
-    
-    .greenup-logo {
-        max-width: 240px;
-        margin-bottom: 20px;
-    }
-    
-    .greenup-text {
-        font-size: 1.4rem;
-        margin-bottom: 5px;
-    }
-    
-    .greenup-subtext {
-        font-size: 1.05rem;
-        margin-bottom: 25px;
-    }
-    
-    .greenup-buttons {
-        gap: 10px;
-        max-width: 300px;
-    }
-    
-    .greenup-btn {
-        padding: 14px 20px;
-        font-size: 0.95rem;
-    }
-}
-
-/* Landscape orientation adjustments */
-@media (max-height: 600px) and (orientation: landscape) {
-    .greenup-hero {
-        padding-top: 20px;
+        padding: 12px 10px;
+        gap: 8px;
     }
     
     .greenup-logo {
@@ -297,22 +268,158 @@ body {
     
     .greenup-text {
         font-size: 1.3rem;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
     }
     
     .greenup-subtext {
         font-size: 1rem;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .greenup-buttons {
+        gap: 8px;
+        max-width: 280px;
+    }
+    
+    .greenup-btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    .greenup-hero {
+        padding: 10px 20px;
+        gap: 5px;
+    }
+    
+    .greenup-logo {
+        max-width: 160px;
+        margin-bottom: 10px;
+    }
+    
+    .greenup-text {
+        font-size: 1.2rem;
+        margin-bottom: 3px;
+    }
+    
+    .greenup-subtext {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
     }
     
     .greenup-buttons {
         flex-direction: row;
-        max-width: 500px;
+        flex-wrap: wrap;
+        gap: 8px;
+        max-width: 600px;
+        justify-content: center;
     }
     
     .greenup-btn {
-        padding: 12px 20px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        flex: 1;
+        min-width: 120px;
+        max-width: 180px;
+    }
+}
+
+/* Extra short mobile screens (iPhone SE, older phones) */
+@media (max-height: 640px) and (max-width: 767px) {
+    .greenup-hero {
+        padding: 8px 15px;
+        gap: 4px;
+    }
+    
+    .greenup-logo {
+        max-width: 160px;
+        margin-bottom: 8px;
+    }
+    
+    .greenup-text {
+        font-size: 1.1rem;
+        margin-bottom: 2px;
+    }
+    
+    .greenup-subtext {
         font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    .greenup-buttons {
+        gap: 6px;
+    }
+    
+    .greenup-btn {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Ultra compact for very small screens */
+@media (max-width: 350px) {
+    .greenup-hero {
+        padding: 10px 12px;
+        gap: 4px;
+    }
+    
+    .greenup-logo {
+        max-width: 180px;
+        margin-bottom: 10px;
+    }
+    
+    .greenup-text {
+        font-size: 1.2rem;
+        margin-bottom: 3px;
+    }
+    
+    .greenup-subtext {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+    }
+    
+    .greenup-buttons {
+        gap: 8px;
+        max-width: 280px;
+    }
+    
+    .greenup-btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ultra compact for very short screens */
+@media (max-height: 580px) {
+    .greenup-hero {
+        padding: 8px 15px;
+        gap: 4px;
+    }
+    
+    .greenup-logo {
+        max-width: 160px;
+        margin-bottom: 8px;
+    }
+    
+    .greenup-text {
+        font-size: 1.1rem;
+        margin-bottom: 3px;
+    }
+    
+    .greenup-subtext {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    .greenup-buttons {
+        gap: 6px;
+    }
+    
+    .greenup-btn {
+        padding: 10px 14px;
+        font-size: 0.85rem;
     }
 }
 
