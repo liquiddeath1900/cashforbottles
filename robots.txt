@@ -18,5 +18,5 @@ Sitemap: https://cashforbottles.com/sitemap.xml
 
 # Contact info for search engines
 # NYC Bottle Pickup Service - Cash for Bottles and Cans
-# Phone: 347-749-8146
+# Phone: 212-473-3687
 # Service Area: All 5 NYC Boroughs
