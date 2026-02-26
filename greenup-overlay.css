@@ -178,7 +178,7 @@ body {
     }
 
     .greenup-counter-promo {
-        max-width: 700px;
+        max-width: 340px;
     }
 }
 
@@ -259,13 +259,21 @@ body {
 
     .greenup-counter-promo {
         margin-top: 20px;
-        padding-top: 15px;
-        max-width: 300px;
+        max-width: 260px;
+        padding: 16px 14px 22px;
+    }
+
+    .greenup-counter-screen {
+        padding: 10px;
+    }
+
+    .greenup-counter-screen .counter-title {
+        font-size: 1.1rem;
     }
 
     .greenup-counter-btn {
         font-size: 0.85rem;
-        padding: 10px 20px;
+        padding: 10px 22px;
     }
 }
 
@@ -438,41 +446,156 @@ body {
     }
 }
 
-/* CNTEMUP Counter Promo */
+/* CNTEMUP Counter Promo — Game Boy Style */
 .greenup-counter-promo {
     margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #e0e0e0;
-    text-align: center;
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
+    background: #c4cfa1;
+    border-radius: 20px 20px 60px 60px;
+    padding: 20px 18px 28px;
+    text-align: center;
+    position: relative;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.15),
+        inset 0 2px 0 rgba(255,255,255,0.4),
+        inset 0 -3px 0 rgba(0,0,0,0.1);
+    border: 2px solid #a0ab80;
 }
 
-.greenup-counter-promo p {
-    color: #666;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 0.85rem;
-    margin-bottom: 10px;
+/* Scanline overlay */
+.greenup-counter-promo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px 20px 60px 60px;
+    background: repeating-linear-gradient(
+        0deg, transparent, transparent 2px,
+        rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
 }
 
+/* The "screen" */
+.greenup-counter-screen {
+    background: #0f380f;
+    border-radius: 8px;
+    padding: 14px 12px;
+    margin-bottom: 16px;
+    position: relative;
+    box-shadow:
+        inset 0 3px 8px rgba(0,0,0,0.5),
+        0 1px 0 rgba(255,255,255,0.3);
+    border: 3px solid #8b956e;
+}
+
+/* Screen scanlines */
+.greenup-counter-screen::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 5px;
+    background: repeating-linear-gradient(
+        0deg, transparent, transparent 1px,
+        rgba(0,0,0,0.15) 1px, rgba(0,0,0,0.15) 2px
+    );
+    pointer-events: none;
+}
+
+.greenup-counter-screen .counter-label {
+    font-family: monospace;
+    font-size: 0.65rem;
+    color: #306230;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.greenup-counter-screen .counter-title {
+    font-family: monospace;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #9bbc0f;
+    text-shadow: 0 0 8px rgba(155, 188, 15, 0.4);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+
+.greenup-counter-screen .counter-desc {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: #5a8a3a;
+    line-height: 1.4;
+}
+
+/* Power LED */
+.greenup-counter-power {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 2;
+}
+
+.greenup-counter-power-dot {
+    width: 6px;
+    height: 6px;
+    background: #ff3333;
+    border-radius: 50%;
+    box-shadow: 0 0 4px #ff3333;
+    animation: blink-led 2s infinite;
+}
+
+.greenup-counter-power-label {
+    font-family: monospace;
+    font-size: 0.5rem;
+    color: #8b956e;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+@keyframes blink-led {
+    0%, 90% { opacity: 1; }
+    95% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* The button */
 .greenup-counter-btn {
     display: inline-block;
-    background: linear-gradient(135deg, #0f380f, #1a5a1a);
-    color: #9bbc0f;
+    background: #9bbc0f;
+    color: #0f380f;
     font-family: monospace;
     font-weight: bold;
     font-size: 0.95rem;
-    padding: 12px 24px;
+    padding: 12px 28px;
     border-radius: 50px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(15, 56, 15, 0.3);
+    transition: all 0.15s ease;
+    box-shadow:
+        0 4px 0 #6a8a0a,
+        0 6px 12px rgba(0,0,0,0.2);
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 2;
 }
 
 .greenup-counter-btn:hover {
+    background: #b0d020;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(15, 56, 15, 0.4);
-    background: linear-gradient(135deg, #1a5a1a, #0f380f);
+    box-shadow:
+        0 6px 0 #6a8a0a,
+        0 8px 16px rgba(0,0,0,0.25);
+}
+
+.greenup-counter-btn:active {
+    transform: translateY(3px);
+    box-shadow:
+        0 1px 0 #6a8a0a,
+        0 2px 4px rgba(0,0,0,0.2);
 }
 
 /* Ensure SEO content remains accessible to screen readers */
