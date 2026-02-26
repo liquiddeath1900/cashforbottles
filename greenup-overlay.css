@@ -154,15 +154,15 @@ body {
     .greenup-logo {
         max-width: 500px;
     }
-    
+
     .greenup-text {
         font-size: 2.5rem;
     }
-    
+
     .greenup-subtext {
         font-size: 1.8rem;
     }
-    
+
     .greenup-buttons {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -170,11 +170,15 @@ body {
         max-width: 700px;
         width: 100%;
     }
-    
+
     .greenup-btn {
         padding: 18px 30px;
         font-size: 1.1rem;
         width: 100%;
+    }
+
+    .greenup-counter-promo {
+        max-width: 700px;
     }
 }
 
@@ -222,23 +226,23 @@ body {
         min-height: 100vh;
         overflow-y: auto;
     }
-    
+
     .greenup-logo {
         max-width: 240px;
         width: 80%;
         margin-bottom: 20px;
     }
-    
+
     .greenup-text {
         font-size: 1.4rem;
         margin-bottom: 6px;
     }
-    
+
     .greenup-subtext {
         font-size: 1.1rem;
         margin-bottom: 25px;
     }
-    
+
     .greenup-buttons {
         display: flex;
         flex-direction: column;
@@ -246,11 +250,22 @@ body {
         max-width: 300px;
         width: 95%;
     }
-    
+
     .greenup-btn {
         padding: 14px 20px;
         font-size: 0.95rem;
         width: 100%;
+    }
+
+    .greenup-counter-promo {
+        margin-top: 20px;
+        padding-top: 15px;
+        max-width: 300px;
+    }
+
+    .greenup-counter-btn {
+        font-size: 0.85rem;
+        padding: 10px 20px;
     }
 }
 
@@ -421,6 +436,43 @@ body {
         padding: 10px 14px;
         font-size: 0.85rem;
     }
+}
+
+/* CNTEMUP Counter Promo */
+.greenup-counter-promo {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+}
+
+.greenup-counter-promo p {
+    color: #666;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.greenup-counter-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #0f380f, #1a5a1a);
+    color: #9bbc0f;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(15, 56, 15, 0.3);
+}
+
+.greenup-counter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 56, 15, 0.4);
+    background: linear-gradient(135deg, #1a5a1a, #0f380f);
 }
 
 /* Ensure SEO content remains accessible to screen readers */
