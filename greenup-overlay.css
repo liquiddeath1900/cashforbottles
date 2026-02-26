@@ -551,6 +551,22 @@ body {
     pointer-events: none;
 }
 
+.greenup-counter-screen .counter-title {
+    font-family: monospace;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #9bbc0f;
+    text-shadow:
+        0 0 8px rgba(155, 188, 15, 0.8),
+        0 0 20px rgba(155, 188, 15, 0.4),
+        0 0 40px rgba(155, 188, 15, 0.15),
+        1px 1px 0 #306230;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+    position: relative;
+    animation: crtPowerOn 1s ease-out 0.5s both, screenGlow 3s ease-in-out 1.5s infinite;
+}
+
 .greenup-counter-screen .counter-label {
     font-family: monospace;
     font-size: 0.65rem;
@@ -558,16 +574,7 @@ body {
     letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-bottom: 4px;
-}
-
-.greenup-counter-screen .counter-title {
-    font-family: monospace;
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #9bbc0f;
-    text-shadow: 0 0 8px rgba(155, 188, 15, 0.4);
-    letter-spacing: 0.05em;
-    margin-bottom: 6px;
+    animation: crtPowerOn 1s ease-out 0.3s both;
 }
 
 .greenup-counter-screen .counter-desc {
@@ -575,6 +582,36 @@ body {
     font-size: 0.7rem;
     color: #5a8a3a;
     line-height: 1.4;
+    animation: crtPowerOn 1s ease-out 0.7s both;
+}
+
+/* CRT power-on flicker */
+@keyframes crtPowerOn {
+    0% { opacity: 0; transform: scaleY(0.02) scaleX(1.2); filter: brightness(3); }
+    15% { opacity: 1; transform: scaleY(0.02) scaleX(1.2); filter: brightness(3); }
+    30% { transform: scaleY(1.1) scaleX(0.98); filter: brightness(1.8); }
+    45% { transform: scaleY(0.95) scaleX(1.02); filter: brightness(0.6); }
+    60% { transform: scaleY(1.03); filter: brightness(1.3); }
+    80% { transform: scaleY(0.99); filter: brightness(1.1); }
+    100% { transform: scaleY(1) scaleX(1); filter: brightness(1); opacity: 1; }
+}
+
+/* Glow pulse after power-on */
+@keyframes screenGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 8px rgba(155, 188, 15, 0.8),
+            0 0 20px rgba(155, 188, 15, 0.4),
+            0 0 40px rgba(155, 188, 15, 0.15),
+            1px 1px 0 #306230;
+    }
+    50% {
+        text-shadow:
+            0 0 12px rgba(155, 188, 15, 1),
+            0 0 30px rgba(155, 188, 15, 0.6),
+            0 0 50px rgba(155, 188, 15, 0.25),
+            1px 1px 0 #306230;
+    }
 }
 
 /* Power LED */
