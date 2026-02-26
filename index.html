@@ -227,11 +227,100 @@
             padding: 20px 0;
             font-size: 1rem;
         }
-        
+
         .footer a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+        }
+
+        /* CNTEMUP Promo Banner */
+        .cntemup-promo {
+            background: linear-gradient(135deg, #0f380f, #1a5a1a);
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border: 2px solid #9bbc0f;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cntemup-promo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg, transparent, transparent 2px,
+                rgba(0, 0, 0, 0.1) 2px, rgba(0, 0, 0, 0.1) 4px
+            );
+            pointer-events: none;
+        }
+
+        .cntemup-promo-badge {
+            display: inline-block;
+            background: #9bbc0f;
+            color: #0f380f;
+            font-family: monospace;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .cntemup-promo h3 {
+            font-family: monospace;
+            color: #9bbc0f;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(155, 188, 15, 0.3);
+        }
+
+        .cntemup-promo p {
+            color: #7a9c4f;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .cntemup-promo-btn {
+            display: inline-block;
+            background: #9bbc0f;
+            color: #0f380f;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 14px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 #6a8a0a;
+        }
+
+        .cntemup-promo-btn:hover {
+            background: #b0d020;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #6a8a0a;
+        }
+
+        .cntemup-promo-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #6a8a0a;
+        }
+
+        @media (max-width: 480px) {
+            .cntemup-promo {
+                margin: 20px 10px;
+                padding: 22px 16px;
+            }
+            .cntemup-promo h3 {
+                font-size: 1.3rem;
+            }
         }
 
         /* Navigation Menu */
@@ -463,7 +552,14 @@
             <a href="tel:2124733687" class="call-button">CALL NOW: 212-473-3687</a>
             <h1 class="title">Cash For Bottles and Cans NYC</h1>
             <p class="tagline">NYC's Premier Bottle Pickup Service - We Come To You!</p>
-            
+
+            <div class="cntemup-promo">
+                <span class="cntemup-promo-badge">FREE TOOL</span>
+                <h3>CNTEM'UP</h3>
+                <p>Count your bottles & cans with your phone camera before pickup. Know exactly how much you'll get paid.</p>
+                <a href="https://cntemup.com" class="cntemup-promo-btn" target="_blank">Start Counting Free →</a>
+            </div>
+
             <div class="faq-section">
                 <h2>Frequently Asked Questions About Our NYC Bottle Pickup</h2>
                 
@@ -489,7 +585,14 @@
             <a href="tel:2124733687" class="call-button">LLAME AHORA: 212-473-3687</a>
             <h1 class="title">Dinero por Botellas y Latas en NYC</h1>
             <p class="tagline">Servicio Premium de Recogida de Botellas en NYC - ¡Vamos a Usted!</p>
-            
+
+            <div class="cntemup-promo">
+                <span class="cntemup-promo-badge">HERRAMIENTA GRATIS</span>
+                <h3>CNTEM'UP</h3>
+                <p>Cuenta tus botellas y latas con la camara de tu telefono antes de la recogida. Sabe exactamente cuanto te van a pagar.</p>
+                <a href="https://cntemup.com" class="cntemup-promo-btn" target="_blank">Empieza a Contar Gratis →</a>
+            </div>
+
             <div class="faq-section">
                 <h2>Preguntas Frecuentes Sobre Nuestra Recogida de Botellas en NYC</h2>
                 
@@ -515,7 +618,14 @@
             <a href="tel:2124733687" class="call-button">立即致电: 212-473-3687</a>
             <h1 class="title">纽约市瓶罐换现金服务</h1>
             <p class="tagline">纽约市优质瓶罐上门回收服务 - 我们来您家!</p>
-            
+
+            <div class="cntemup-promo">
+                <span class="cntemup-promo-badge">免费工具</span>
+                <h3>CNTEM'UP</h3>
+                <p>用手机摄像头计算您的瓶罐数量。在回收前准确知道能拿多少钱。</p>
+                <a href="https://cntemup.com" class="cntemup-promo-btn" target="_blank">免费开始计数 →</a>
+            </div>
+
             <div class="faq-section">
                 <h2>关于我们纽约市瓶罐回收服务的常见问题</h2>
                 
@@ -541,7 +651,14 @@
             <a href="tel:2124733687" class="call-button">ПОЗВОНИТЕ СЕЙЧАС: 212-473-3687</a>
             <h1 class="title">Деньги за Бутылки и Банки в NYC</h1>
             <p class="tagline">Премиум-Сервис Вывоза Бутылок в NYC - Мы Приедем к Вам!</p>
-            
+
+            <div class="cntemup-promo">
+                <span class="cntemup-promo-badge">БЕСПЛАТНЫЙ ИНСТРУМЕНТ</span>
+                <h3>CNTEM'UP</h3>
+                <p>Считайте бутылки и банки камерой телефона перед вывозом. Точно знайте, сколько вам заплатят.</p>
+                <a href="https://cntemup.com" class="cntemup-promo-btn" target="_blank">Начать Считать Бесплатно →</a>
+            </div>
+
             <div class="faq-section">
                 <h2>Часто Задаваемые Вопросы о Нашем Сервисе Вывоза Бутылок в NYC</h2>
                 
@@ -567,7 +684,14 @@
             <a href="tel:2124733687" class="call-button">RELE KOUNYE A: 212-473-3687</a>
             <h1 class="title">Lajan pou Boutèy ak Bwat nan NYC</h1>
             <p class="tagline">Sèvis Premye Kalite Ranmasaj Boutèy nan NYC - Nou Vini Lakay Ou!</p>
-            
+
+            <div class="cntemup-promo">
+                <span class="cntemup-promo-badge">ZOUTI GRATIS</span>
+                <h3>CNTEM'UP</h3>
+                <p>Konte boutèy ak bwat ou yo ak kamera telefon ou anvan ranmasaj. Konnen egzakteman konbyen yo pral peye ou.</p>
+                <a href="https://cntemup.com" class="cntemup-promo-btn" target="_blank">Konte Gratis →</a>
+            </div>
+
             <div class="faq-section">
                 <h2>Kesyon Moun Poze Souvan sou Sèvis Ranmasaj Boutèy NYC Nou an</h2>
                 
@@ -589,7 +713,7 @@
         </div>
         
         <div class="footer">
-            <p>&copy; 2025 Cash For Bottles and Cans NYC | Brooklyn, Queens, Manhattan, Bronx, Staten Island | <a href="tel:2124733687">212-473-3687</a></p>
+            <p>&copy; 2026 Cash For Bottles and Cans NYC | Brooklyn, Queens, Manhattan, Bronx, Staten Island | <a href="tel:2124733687">212-473-3687</a></p>
         </div>
     </div>
     
