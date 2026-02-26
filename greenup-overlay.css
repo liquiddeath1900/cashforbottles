@@ -137,6 +137,30 @@ body {
     box-shadow: 0 6px 25px rgba(46, 125, 50, 0.4);
 }
 
+/* App Store Badges */
+.greenup-store-badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.store-badge {
+    display: block;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.store-badge svg {
+    height: 36px;
+    width: auto;
+}
+
+.store-badge:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
 /* Animation */
 @keyframes fadeIn {
     from {
@@ -221,92 +245,116 @@ body {
 /* Mobile */
 @media (max-width: 767px) {
     .greenup-hero {
-        padding: 15px 15px;
+        padding: 12px 15px;
         justify-content: center;
         min-height: 100vh;
         overflow-y: auto;
+        gap: 0;
     }
 
     .greenup-logo {
-        max-width: 240px;
-        width: 80%;
-        margin-bottom: 20px;
+        max-width: 180px;
+        width: 60%;
+        margin-bottom: 10px;
     }
 
     .greenup-text {
-        font-size: 1.4rem;
-        margin-bottom: 6px;
+        font-size: 1.2rem;
+        margin-bottom: 2px;
     }
 
     .greenup-subtext {
-        font-size: 1.1rem;
-        margin-bottom: 25px;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
     }
 
     .greenup-buttons {
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        max-width: 300px;
+        gap: 8px;
+        max-width: 280px;
         width: 95%;
     }
 
     .greenup-btn {
-        padding: 14px 20px;
-        font-size: 0.95rem;
+        padding: 12px 20px;
+        font-size: 0.9rem;
         width: 100%;
     }
 
+    .greenup-store-badges {
+        margin-top: 10px;
+    }
+
+    .store-badge svg {
+        height: 32px;
+    }
+
     .greenup-counter-promo {
-        margin-top: 20px;
+        margin-top: 14px;
         max-width: 260px;
-        padding: 16px 14px 22px;
+        padding: 14px 12px 18px;
     }
 
     .greenup-counter-screen {
         padding: 10px;
+        margin-bottom: 12px;
     }
 
     .greenup-counter-screen .counter-title {
         font-size: 1.1rem;
     }
 
+    .greenup-counter-screen .counter-desc {
+        font-size: 0.6rem;
+    }
+
     .greenup-counter-btn {
-        font-size: 0.85rem;
-        padding: 10px 22px;
+        font-size: 0.8rem;
+        padding: 9px 20px;
     }
 }
 
 /* Very small mobile devices */
 @media (max-width: 375px) {
     .greenup-hero {
-        padding: 12px 10px;
-        gap: 8px;
+        padding: 10px 10px;
+        gap: 0;
     }
-    
+
     .greenup-logo {
-        max-width: 200px;
-        margin-bottom: 15px;
+        max-width: 150px;
+        margin-bottom: 8px;
     }
-    
+
     .greenup-text {
-        font-size: 1.3rem;
-        margin-bottom: 4px;
+        font-size: 1.1rem;
+        margin-bottom: 2px;
     }
-    
+
     .greenup-subtext {
-        font-size: 1rem;
-        margin-bottom: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 10px;
     }
-    
+
     .greenup-buttons {
-        gap: 8px;
-        max-width: 280px;
+        gap: 6px;
+        max-width: 260px;
     }
-    
+
     .greenup-btn {
-        padding: 12px 16px;
-        font-size: 0.9rem;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .store-badge svg {
+        height: 28px;
+    }
+
+    .greenup-counter-promo {
+        margin-top: 10px;
+        max-width: 240px;
+        padding: 12px 10px 16px;
     }
 }
 
